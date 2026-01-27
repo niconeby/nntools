@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us</title>
+  <meta name="description" content="Halaman About Us - Mediaagni" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root {
+      --brand: #00857c;
+      --bg: #f6fbfa;
+      --text: #0f172a;
+      --muted: #475569;
+      --card: #ffffff;
+      --shadow: 0 18px 50px rgba(2, 44, 41, .10);
+      --radius: 18px;
+
+      --container: 980px;
+      --header-h: 96px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(0, 133, 124, .10), transparent 55%),
+        radial-gradient(900px 500px at 90% 20%, rgba(10, 167, 155, .12), transparent 60%),
+        var(--bg);
+      background-repeat: no-repeat;
+    }
+
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: var(--header-h);
+    }
+
+    main.content-container {
+      flex: 1;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 28px 18px 40px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page">
+    <div id="header"></div>
+
+    <main class="content-container">
+<section class="about-section">
+  <div class="card card-center about-card">
+    <div class="card-body">
+
+      <h1 class="card-title">About MediaAgni Tools</h1>
+
+      <p>
+        <strong>MediaAgni Tools</strong> adalah platform yang menyediakan berbagai
+        alat bantu online yang bertujuan untuk edukasi, keamanan digital, dan
+        kemudahan pengguna.
+      </p>
+
+      <p>
+        Salah satu layanan kami adalah <strong>Cek Keamanan Password</strong>,
+        yang dirancang untuk membantu pengguna memahami tingkat kekuatan password
+        serta mengetahui apakah password tersebut berpotensi tidak aman atau
+        pernah terlibat dalam kebocoran data.
+      </p>
+
+      <h3>Fokus Kami</h3>
+      <ul>
+        <li>Penyediaan alat yang sederhana, cepat, dan mudah digunakan</li>
+        <li>Edukasi pengguna mengenai keamanan akun dan praktik digital yang lebih aman</li>
+        <li>Pengembangan layanan yang mengutamakan privasi pengguna</li>
+      </ul>
+
+      <h3>Komitmen Privasi</h3>
+      <p>
+        Kami berkomitmen untuk menjaga privasi pengguna.
+        <strong>MediaAgni Tools</strong> tidak menyimpan, merekam, atau mengirimkan
+        password dalam bentuk teks asli ke server kami.
+      </p>
+      <p>
+        Proses pemeriksaan dilakukan secara lokal di perangkat pengguna dengan
+        bantuan layanan pihak ketiga yang terpercaya.
+      </p>
+
+      <h3>Transparansi &amp; Pengembangan</h3>
+      <p>
+        MediaAgni Tools dikembangkan secara independen dan terus diperbarui untuk
+        meningkatkan kualitas layanan dan pengalaman pengguna.
+      </p>
+      <p>
+        Masukan dan saran dari pengguna sangat kami hargai.
+      </p>
+
+      <p>
+        Jika Anda memiliki pertanyaan, saran, atau ingin bekerja sama, silakan
+        kunjungi halaman <a href="/contact-us">Contact</a>.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+    </main>
+    <div id="footer"></div>
+  </div>
+
+  <script>
+    function initMobileNav() {
+      const headerHost = document.getElementById("header");
+      const btn = document.getElementById("menuBtn");
+      const nav = document.getElementById("mobileNav");
+      if (!headerHost || !btn || !nav) return;
+
+      const setOpen = (open) => {
+        headerHost.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.innerHTML = open
+          ? '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>'
+          : '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>';
+      };
+
+      btn.addEventListener("click", () => {
+        setOpen(!headerHost.classList.contains("is-open"));
+      });
+
+      nav.addEventListener("click", (e) => {
+        if (e.target.closest("a")) setOpen(false);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!headerHost.classList.contains("is-open")) return;
+        if (headerHost.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
+    }
+
+    Promise.all([
+      fetch("/header.html").then(r => r.text()).then(t => (document.getElementById("header").innerHTML = t)),
+      fetch("/footer.html").then(r => r.text()).then(t => (document.getElementById("footer").innerHTML = t)),
+    ]).then(() => {
+      initMobileNav();
+    });
+  </script>
+  
+
+</body>
+
+</html>
