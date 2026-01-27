@@ -1,435 +1,84 @@
-<!-- 
-Mediaagni tools : Password Checker
-Version         : 2.3.1
-Author          : Ferizco & Nabilah
--->
 <!doctype html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Password Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tools Mediaagni</title>
+  <meta name="description" content="Kumpulan tools dari Mediaagni" />
+  <link rel="icon" href="/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
   <style>
     :root {
       --brand: #00857c;
-      --brand-2: #006f68;
-
+      --bg: #f6fbfa;
       --text: #0f172a;
       --muted: #475569;
-
       --card: #ffffff;
-      --border: rgba(15, 23, 42, .10);
-      --shadow: 0 18px 55px rgba(2, 44, 41, .12);
-
+      --shadow: 0 18px 50px rgba(2, 44, 41, .10);
       --radius: 18px;
+
+      --container: 980px;
+      --header-h: 96px;
     }
 
-    /* =========================
-      PAGE WRAPPER (INI KUNCI!)
-      ========================= */
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
+      background: var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       background:
-        radial-gradient(1100px 700px at 10% 10%, rgba(0, 133, 124, .14), transparent 60%),
-        radial-gradient(900px 600px at 90% 20%, rgba(0, 133, 124, .10), transparent 55%),
-        #f6fbfa;
-      place-items: start center;
-      padding: 28px 14px 56px;
+        radial-gradient(1200px 600px at 10% 10%, rgba(0, 133, 124, .10), transparent 55%),
+        radial-gradient(900px 500px at 90% 20%, rgba(10, 167, 155, .12), transparent 60%),
+        var(--bg);
+      background-repeat: no-repeat;
     }
 
-    @supports not (place-items: start center) {
-      body {
-        display: flex;
-        justify-content: center;
-      }
-    }
 
-    /* =========================
-      TOOL CARD (BESARIN!)
-      ========================= */
-    body .tool-container {
-      margin: 0 auto;
-      background: rgba(255, 255, 255, .92);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
-      padding: 34px 34px 28px;
-      position: relative;
-      overflow: hidden;
-      animation: fadeIn .35s ease-out;
+    .page {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      max-width: 760px;
-      justify-content: center;
-      gap: 20px;
+      padding-top: var(--header-h);
     }
 
-    /* =========================
-      TITLE
-      ========================= */
-    body .tool-container h2 {
-      text-align: center;
-      margin: 20px auto;
-      font-size: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    /* =========================
-      INPUT + EYE
-      ========================= */
-    body .input-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    body #passwordInput {
-      width: 98%;
-      padding: 12px 5px;
-      font-size: 16px;
-      border: 2px solid rgba(15, 23, 42, .12);
-      border-radius: 12px;
-      outline: none;
-      background: #fff;
-      color: var(--text);
-      transition: border-color .15s ease, box-shadow .15s ease;
-    }
-
-    body #passwordInput:focus {
-      border-color: rgba(0, 133, 124, .55);
-      box-shadow: 0 0 0 6px rgba(0, 133, 124, .14);
-    }
-
-    body .toggle-visibility svg {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      width: 22px;
-      height: 22px;
-    }
-
-    body .toggle-visibility svg path {
-      fill: rgba(15, 23, 42, .35);
-    }
-
-    /* =========================
-      BUTTONS (DESKTOP 2 KOLOM)
-      ========================= */
-    body .button-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      width: 100%;
-    }
-
-    body .btn {
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 12px 14px;
-      font-size: 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
-      box-shadow: 0 10px 22px rgba(0, 133, 124, .18);
-    }
-
-    body .btn:hover {
-      background: var(--brand-2);
-      transform: translateY(-1px);
-    }
-
-    body .btn:active {
-      transform: translateY(0);
-    }
-
-    /* =========================
-      RESULT BOX
-      ========================= */
-    body #breachResult {
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, .03);
-      border: 1px solid rgba(15, 23, 42, .06);
-      font-size: 14px;
-      line-height: 1.6;
-      display: none;
-    }
-
-    body .breach-result {
-      width: 100%;
-    }
-
-    /* =========================
-      STRENGTH METER
-      ========================= */
-    body .strength-meter {
-      height: 12px;
-      width: 100%;
-      background: rgba(15, 23, 42, .08);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    body .strength-bar {
-      height: 100%;
-      width: 0%;
-      background: #ccc;
-      transition: width .25s ease, background-color .25s ease;
-      border-radius: 999px;
-    }
-
-    body .strength-text {
-      font-weight: 800;
-      text-align: center;
-    }
-
-    body .suggestion-box {
-      margin-top: 12px;
-      padding: 12px 14px;
-      background: rgba(243, 156, 18, .12);
-      border-left: 4px solid #f39c12;
-      font-size: 14px;
-      line-height: 1.65;
-      border-radius: 12px;
-      display: none;
-    }
-
-    body .suggestion-container {
-      width: 100%;
-    }
-
-    /* =========================
-      DISCLAIMER + SUPPORT
-      ========================= */
-    body .disclaimer {
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, .03);
-      border-left: 4px solid var(--brand);
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    body .disclaimer strong {
-      color: var(--text);
-    }
-
-    body .disclaimer a.hibp-link {
-      color: var(--brand);
-      text-decoration: none;
-      font-weight: 800;
-      border-bottom: 2px dotted rgba(0, 133, 124, .65);
-    }
-
-    body .disclaimer a.hibp-link:hover {
-      border-bottom-style: solid;
-    }
-
-    body .disclaimer a.contact {
-      color: var(--brand);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    body .disclaimer a.contact:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    body .support-box {
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(241, 196, 15, .14);
-      border-left: 4px solid #f1c40f;
-      color: #5d4a00;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    body .support-box a {
-      color: var(--brand);
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    body .support-box a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* =========================
-      ICON / VERSION
-      ========================= */
-    body .checking-icon {
-      width: 14px;
-      height: 14px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-
-    body .checking-icon path {
-      fill: var(--brand) !important;
-    }
-
-    body .version-info {
-      float: right;
-      font-size: 12px;
-      color: rgba(15, 23, 42, .45);
-      font-style: italic;
-    }
-
-    input[type="password"]::-ms-reveal {
-      display: none;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* =========================
-      MOBILE (HP)
-      ========================= */
-    @media (max-width: 520px) {
-      body {
-        padding: 18px 12px 40px;
-        place-items: start stretch;
-        /* biar full width di HP */
-      }
-
-      body .tool-container {
-        padding: 18px 16px 16px;
-        border-radius: 14px;
-      }
-
-      body .tool-container h2 {
-        font-size: 18px;
-        margin-bottom: 14px;
-      }
-
-      body .button-group {
-        grid-template-columns: 1fr;
-      }
-
-      body #passwordInput {
-        font-size: 15px;
-        width: 96%;
-      }
-
-      body .disclaimer,
-      body .support-box {
-        font-size: 13.5px;
-        padding: 12px 12px;
-      }
-
-      body .version-info {
-        float: none;
-        display: block;
-        text-align: right;
-      }
-
-      body .tool-container::after {
-        width: 180px;
-        height: 180px;
-        right: -70px;
-        top: 100px;
-      }
-    }
-
-    /* =========================
-      DARK THEME (opsional)
-      ========================= */
-    [data-theme="dark"] body {
-      background:
-        radial-gradient(1100px 700px at 10% 10%, rgba(0, 133, 124, .18), transparent 60%),
-        radial-gradient(900px 600px at 90% 20%, rgba(0, 133, 124, .14), transparent 55%),
-        #0b1220;
-      color: #eef2ff;
-    }
-
-    [data-theme="dark"] body .tool-container {
-      background: rgba(27, 33, 42, .92);
-      border-color: rgba(155, 163, 181, .25);
-    }
-
-    [data-theme="dark"] body #passwordInput {
-      background: rgba(27, 33, 42, .92);
-      color: #e6eaf2;
-      border-color: rgba(155, 163, 181, .55);
-    }
-
-    [data-theme="dark"] body .toggle-visibility svg path {
-      fill: rgba(155, 163, 181, .85);
-    }
-
-    [data-theme="dark"] body #breachResult,
-    [data-theme="dark"] body .disclaimer {
-      background: rgba(255, 255, 255, .06);
-      border-color: rgba(255, 255, 255, .10);
-      color: rgba(231, 235, 243, .92);
-    }
-
-    [data-theme="dark"] body .support-box {
-      background: rgba(255, 255, 255, .06);
-      color: rgba(231, 235, 243, .92);
-    }
-
-    /* =========================
-      FIX CARD TERLIHAT GEPENG
-      ========================= */
-    .tool-container {
-      min-height: 640px;
-      padding-bottom: 42px;
-    }
-
-    .tool-container>* {
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .tool-container::after {
-      top: 120px;
-      width: 320px;
-      height: 320px;
-    }
-
-    /* =========================
-      MOBILE: jangan kepanjangan tapi tetap enak
-      ========================= */
-    @media (max-width: 520px) {
-      .tool-container {
-        min-height: auto;
-        padding-bottom: 28px;
-      }
-
-      .tool-container>* {
-        max-width: 100%;
-      }
+    main.content-container {
+      flex: 1;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 28px 18px 40px;
     }
   </style>
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <div class="page">
+    <div id="header"></div>
 
-  <div class="tool-container">
+    <main class="content-container">
+      <div class="tool-container">
     <h2>Cek Kekuatan Password Kamu🔐</h2>
     <div class="input-wrapper">
       <input autocomplete="off" id="passwordInput" maxlength="50" name="pass-checker" type="password"
@@ -480,7 +129,7 @@ Author          : Ferizco & Nabilah
         <em>k-anonymity</em></a>.<br /><br />
 
       📬 Jika kamu memiliki kritik, saran, atau pertanyaan seputar tool ini, silakan kunjungi halaman <a class="contact"
-        href="http://www.mediaagni.com/contact-us" rel="noopener noreferrer" target="_blank"><strong>Contact Us</strong></a>. Kami akan dengan senang hati
+        href="/contact-us" rel="noopener noreferrer" target="_blank"><strong>Contact Us</strong></a>. Kami akan dengan senang hati
       menerima masukanmu!
     </div>
 
@@ -493,260 +142,52 @@ Author          : Ferizco & Nabilah
 
     <div class="version-info">Version: 2.3.1</div>
   </div>
+    </main>
+    <div id="footer"></div>
+  </div>
 
   <script>
-    const passwordInput = document.getElementById('passwordInput');
-    const strengthBar = document.getElementById('strengthBar');
-    const strengthText = document.getElementById('strengthText');
-    const suggestionBox = document.getElementById('suggestionBox');
-    const iconVisible = document.getElementById('icon-visible');
-    const iconHidden = document.getElementById('icon-hidden');
+    function initMobileNav() {
+      const headerHost = document.getElementById("header");
+      const btn = document.getElementById("menuBtn");
+      const nav = document.getElementById("mobileNav");
+      if (!headerHost || !btn || !nav) return;
 
-    /**
-     * Event listener untuk mendeteksi perubahan di input password.
-     * Akan menghitung skor kekuatan password, memberikan saran, 
-     * dan memperbarui indikator kekuatan secara visual.
-     */
-    passwordInput.addEventListener('input', () => {
-      const pwd = passwordInput.value.trim();
+      const setOpen = (open) => {
+        headerHost.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.innerHTML = open
+          ? '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>'
+          : '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>';
+      };
 
-      if (pwd === "") {
-        strengthBar.style.width = "0%";
-        strengthBar.style.background = "#ccc";
-        strengthText.textContent = "Tingkat kekuatan akan muncul di sini";
-        suggestionBox.style.display = "none";
-
-        // Bersihkan hasil cek bocor
-        const resultBox = document.getElementById("breachResult");
-        if (resultBox) {
-          resultBox.innerHTML = "";
-          resultBox.style.color = "";
-          resultBox.style.display = "none";
-        }
-        return;
-      }
-
-      let score = 0;
-      const suggestions = [];
-
-      if (pwd.length >= 12) score++;
-      else suggestions.push("Gunakan minimal 12 karakter");
-
-      if (/[A-Z]/.test(pwd)) score++;
-      else suggestions.push("Tambahkan huruf besar (A-Z)");
-
-      if (/[a-z]/.test(pwd)) score++;
-      else suggestions.push("Tambahkan huruf kecil (a-z)");
-
-      if (/\d/.test(pwd)) score++;
-      else suggestions.push("Tambahkan angka (0-9)");
-
-      if (/[\W_]/.test(pwd)) score++;
-      else suggestions.push("Tambahkan simbol (!@#$% dll)");
-
-      let strength = "", width = "0%", color = "#ccc";
-
-      if (score <= 2) {
-        strength = "Lemah 😟";
-        width = "25%";
-        color = "#e74c3c";
-      } else if (score === 3) {
-        strength = "Sedang 😐";
-        width = "50%";
-        color = "#f1c40f";
-      } else if (score === 4) {
-        strength = "Cukup Kuat 🙂";
-        width = "75%";
-        color = "#2ecc71";
-      } else if (score === 5) {
-        strength = "Sangat Kuat 💪";
-        width = "100%";
-        color = "#27ae60";
-      }
-
-      strengthBar.style.width = width;
-      strengthBar.style.background = color;
-      strengthText.textContent = strength;
-
-      strengthBar.animate([
-        { transform: 'scaleX(1)', offset: 0 },
-        { transform: 'scaleX(1.03)', offset: 0.8 },
-        { transform: 'scaleX(1)', offset: 1 }
-      ], {
-        duration: 300,
-        fill: 'forwards'
+      btn.addEventListener("click", () => {
+        setOpen(!headerHost.classList.contains("is-open"));
       });
 
-      if (suggestions.length > 0) {
-        suggestionBox.style.display = "block";
-        suggestionBox.innerHTML = "💡 Saran:<br>- " + suggestions.join("<br>- ");
-      } else {
-        suggestionBox.style.display = "none";
-      }
-    });
+      nav.addEventListener("click", (e) => {
+        if (e.target.closest("a")) setOpen(false);
+      });
 
-    /**
-     * Mengubah tampilan password menjadi terlihat atau tersembunyi.
-     * Juga mengganti ikon mata terbuka/tertutup secara dinamis.
-     */
-    function toggleVisibility() {
-      const input = document.getElementById('passwordInput');
-      const isHidden = input.getAttribute('type') === 'password';
-      input.setAttribute('type', isHidden ? 'text' : 'password');
+      document.addEventListener("click", (e) => {
+        if (!headerHost.classList.contains("is-open")) return;
+        if (headerHost.contains(e.target)) return;
+        setOpen(false);
+      });
 
-      const iconVisible = document.getElementById('icon-visible');
-      const iconHidden = document.getElementById('icon-hidden');
-
-      iconVisible.style.display = isHidden ? 'none' : 'block';
-      iconHidden.style.display = isHidden ? 'block' : 'none';
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
     }
 
-    /**
-     * Menyalin password dari input ke clipboard menggunakan Clipboard API.
-     * Setelah disalin, menampilkan notifikasi 'berhasil disalin' dengan animasi.
-     * Fallback atau error akan ditampilkan jika gagal.
-     */
-    async function copyPassword() {
-      try {
-        await navigator.clipboard.writeText(passwordInput.value);
-
-        const notice = document.getElementById("copyNotice");
-        notice.style.opacity = 0;
-        notice.style.display = "block";
-        notice.animate([
-          { opacity: 0, transform: "translateY(5px)" },
-          { opacity: 1, transform: "translateY(0)" }
-        ], {
-          duration: 300,
-          fill: "forwards"
-        });
-        setTimeout(() => {
-          notice.animate([
-            { opacity: 1, transform: "translateY(0)" },
-            { opacity: 0, transform: "translateY(-5px)" }
-          ], {
-            duration: 300,
-            fill: "forwards"
-          });
-          setTimeout(() => {
-            notice.style.display = "none";
-          }, 300);
-        }, 2000);
-      } catch (err) {
-        alert("Gagal menyalin password ke clipboard.");
-        console.error(err);
-      }
-    }
-
-    /**
-     * Menghasilkan hash SHA-1 dari string yang diberikan.
-     * Digunakan untuk memproses password secara aman sebelum dikirim ke HIBP.
-     * @param {string} str - Password yang akan di-hash.
-     * @returns {Promise<string>} - Nilai hash dalam bentuk string hexadecimal huruf besar.
-     */
-    async function sha1(str) {
-      const buffer = new TextEncoder().encode(str);
-      const hashBuffer = await crypto.subtle.digest("SHA-1", buffer);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
-    }
-
-    /**
-     * Membatasi jumlah request pengecekan password bocor (max 5x per menit).
-     * Data disimpan sementara di localStorage browser.
-     * @returns {boolean} - True jika masih boleh request, false jika kena limit.
-     */
-    function getRateLimitStatus() {
-      const data = JSON.parse(localStorage.getItem("pwnedRateLimit")) || {};
-      const now = Date.now();
-
-      if (!data.timestamp || now - data.timestamp > 60000) {
-        // Reset jika sudah lewat 1 menit
-        const newData = { count: 1, timestamp: now };
-        localStorage.setItem("pwnedRateLimit", JSON.stringify(newData));
-        return true;
-      }
-      if (data.count >= 5) return false;
-      data.count += 1;
-      localStorage.setItem("pwnedRateLimit", JSON.stringify(data));
-      return true;
-    }
-    /**
-     * Mengecek apakah password pengguna pernah bocor berdasarkan database HIBP.
-     * Metode yang digunakan adalah k-anonymity (mengirim 5 karakter awal hash SHA-1).
-     * Hasil akan ditampilkan ke user dan diberi warna sesuai status.
-     */
-    async function checkPwned() {
-      const resultBox = document.getElementById("breachResult");
-      if (!resultBox) return;
-
-      resultBox.style.display = "block";
-
-      if (!getRateLimitStatus()) {
-        resultBox.innerHTML = "⚠️ Maksimal 5 kali pengecekan per menit. Silahkan tunggu sebentar.";
-        resultBox.style.color = "#f39c12";
-        return;
-      }
-
-      const pwd = passwordInput.value.trim();
-      if (!pwd) {
-        resultBox.innerHTML = "⚠️ Silahkan isi password terlebih dahulu.";
-        resultBox.style.color = "#e67e22";
-        return;
-      }
-
-      if (pwd.length > 25) {
-        resultBox.innerHTML = "⚠️ Maksimal panjang password untuk dicek adalah 25 karakter.";
-        resultBox.style.color = "#e67e22";
-        return;
-      }
-
-      resultBox.innerHTML = `
-        <svg class="checking-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-          <path d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64l0 11c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437l0 11c-17.7 0-32 14.3-32 32s14.3 32 32 32l32 0 256 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-11c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1l0-11c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 0 64 0 32 0zM96 75l0-11 192 0 0 11c0 19-5.6 37.4-16 53L112 128c-10.3-15.6-16-34-16-53zm16 309c3.5-5.3 7.6-10.3 12.1-14.9L192 301.3l67.9 67.9c4.6 4.6 8.6 9.6 12.1 14.9L112 384z"/>
-        </svg>
-        Mengecek...
-      `;
-      resultBox.style.color = "#555";
-
-      const hash = await sha1(pwd);
-      const prefix = hash.slice(0, 5);
-      const suffix = hash.slice(5);
-
-      try {
-        const res = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`);
-        const text = await res.text();
-
-        const lines = text.split("\n");
-        const found = lines.find(line => line.startsWith(suffix));
-
-        if (found) {
-          const count = found.split(":")[1].trim();
-          const countFormatted = Number(count).toLocaleString("en-US");
-          resultBox.innerHTML = `❌ Password ini telah bocor <strong>${countFormatted}</strong> kali! Hindari penggunaan.`;
-          resultBox.style.color = "#e74c3c";
-        } else {
-          resultBox.innerHTML = "✅ Password ini belum ditemukan dalam database kebocoran publik.";
-          resultBox.style.color = "#2ecc71";
-        }
-      } catch (err) {
-        resultBox.innerHTML = "⚠️ Gagal menghubungi server HIBP.";
-        resultBox.style.color = "#e67e22";
-      }
-    }
-
-    // Inisialisasi event setelah DOM siap
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("toggleVisibility");
-      const copyBtn = document.getElementById("copyBtn");
-      const checkBtn = document.getElementById("checkBtn");
-
-      if (toggleBtn) toggleBtn.addEventListener("click", toggleVisibility);
-      if (copyBtn) copyBtn.addEventListener("click", copyPassword);
-      if (checkBtn) checkBtn.addEventListener("click", checkPwned);
+    Promise.all([
+      fetch("/header.html").then(r => r.text()).then(t => (document.getElementById("header").innerHTML = t)),
+      fetch("/footer.html").then(r => r.text()).then(t => (document.getElementById("footer").innerHTML = t)),
+    ]).then(() => {
+      initMobileNav();
     });
   </script>
-
+  <script src="cek-keamanan-password.js"></script>
 </body>
 
 </html>
