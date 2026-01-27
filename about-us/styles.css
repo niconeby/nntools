@@ -1,0 +1,66 @@
+/* ===========================
+   About MediaAgni Tools
+   =========================== */
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.about-card {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Typography */
+.about-card .card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.about-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-card ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.about-card ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Links */
+.about-card a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.about-card a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .about-card .card-title {
+    font-size: 1.45rem;
+  }
+
+  .about-card h3 {
+    font-size: 1.05rem;
+  }
+}
