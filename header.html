@@ -1,0 +1,211 @@
+<style>
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(15, 23, 42, .08);
+  }
+
+  .site-header {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 25px 18px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    height: 36px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* desktop nav */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: background .15s ease, border-color .15s ease;
+    white-space: nowrap;
+  }
+
+  .nav a:hover {
+    background: rgba(0, 133, 124, .08);
+    border-color: rgba(0, 133, 124, .18);
+  }
+
+  .nav a.is-primary {
+    color: var(--brand);
+    background: rgba(0, 133, 124, .10);
+    border-color: rgba(0, 133, 124, .18);
+    font-weight: 600;
+  }
+
+  /* hamburger button (lebih bagus) */
+  .menu-btn {
+    display: none;
+    width: 44px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, .10);
+    background: rgba(255, 255, 255, .9);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+
+  .menu-btn:hover {
+    background: rgba(0, 133, 124, .06);
+    border-color: rgba(0, 133, 124, .18);
+    transform: translateY(-1px);
+  }
+
+  /* icon pakai svg biar crisp */
+  .menu-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  /* biar klik selalu kena button, bukan SVG/path */
+  .menu-icon,
+  .menu-icon * {
+    pointer-events: none;
+  }
+
+  /* mobile dropdown panel */
+  .nav-panel {
+    max-width: var(--container);
+    margin: 0 auto;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    overflow: hidden;
+
+    transition: max-height 280ms ease, opacity 220ms ease, transform 220ms ease;
+    will-change: max-height, opacity, transform;
+  }
+
+  .nav-panel-inner {
+    border-top: 1px solid rgba(15, 23, 42, .08);
+    padding-top: 12px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .nav-panel a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid rgba(15, 23, 42, .08);
+    background: rgba(255, 255, 255, .92);
+    transition: background .12s ease, border-color .12s ease;
+  }
+
+  .nav-panel a:hover {
+    border-color: rgba(0, 133, 124, .22);
+    background: rgba(0, 133, 124, .06);
+  }
+
+  .nav-panel a.is-primary {
+    color: var(--brand);
+    border-color: rgba(0, 133, 124, .22);
+    background: rgba(0, 133, 124, .10);
+    font-weight: 600;
+  }
+
+  /* open state controlled by class */
+  #header.is-open .nav-panel {
+    max-height: 420px;
+    /* cukup untuk 5 link, boleh kamu naikkan */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 0 14px 14px;
+  }
+
+  /* responsive */
+  @media (max-width: 720px) {
+    .site-header {
+      padding: 10px 14px;
+    }
+
+    .brand-logo {
+      height: 32px;
+      max-width: 200px;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .menu-btn {
+      display: inline-flex;
+    }
+
+    .nav-panel {
+      padding: 0 14px;
+    }
+  }
+</style>
+
+<div class="site-header">
+  <div class="brand">
+    <img class="brand-logo" src="/long-logo.png" alt="Website Aku">
+  </div>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav"
+    aria-label="Buka menu">
+    <!-- Hamburger SVG -->
+    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </button>
+
+  <!-- Desktop nav -->
+  <nav class="nav" aria-label="Navigasi">
+    <a class="is-primary" href="/">Home</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+  </nav>
+</div>
+
+<!-- Mobile dropdown -->
+<nav class="nav-panel" id="mobileNav" aria-label="Navigasi mobile">
+  <div class="nav-panel-inner">
+    <a class="is-primary" href="/">Home</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+  </div>
+</nav>
