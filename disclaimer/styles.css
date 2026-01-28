@@ -1,37 +1,7 @@
-/* =========================================
-   Legal Pages (Privacy Policy & Disclaimer)
-   ========================================= */
-
-.privacy-section {
-  display: flex;
-  justify-content: center;
-  padding: 2.5rem 1rem;
+.card-body h3 {
+  margin-top: 20px;
 }
 
-.privacy-card {
-  max-width: 900px;
-  width: 100%;
-}
-
-/* Card base (gunakan ini jika template belum punya) */
-.card {
-  background-color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-/* Center helper */
-.card-center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-body {
-  padding: 2.2rem;
-}
-
-/* Title */
-.card-title {
-  font-size: 1.8rem
+.card-body ul {
+  padding-left: 18px;
 }
