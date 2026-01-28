@@ -1,27 +1,83 @@
 <style>
-  .footer-wrap {
+  .footer-wrap{
     width: 100%;
     padding: 0 18px 32px;
   }
 
-  .site-footer {
+  .site-footer{
     margin: 0 auto;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 16px;
+    padding: 18px 16px 16px;
     text-align: center;
     color: var(--muted);
     font-size: 13px;
   }
 
-  .site-footer p {
+  /* links */
+  .footer-links{
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .footer-links a{
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-links a:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-sep{
+    margin: 0 8px;
+    color: rgba(15,23,42,.35);
+  }
+
+  /* copyright */
+  .footer-copy{
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  .footer-copy p{
     margin: 0;
+  }
+
+  /* mobile: biar gak kepanjangan */
+  @media (max-width: 520px){
+    .footer-links{
+      line-height: 1.8;
+    }
+
+    .footer-sep{
+      display: none;
+    }
+
+    .footer-links a{
+      display: block;
+      margin: 4px 0;
+    }
   }
 </style>
 
 <div class="footer-wrap">
   <footer class="site-footer">
-    <p>Copyright &copy; 2026</p>
+    <div class="footer-links">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-sep">|</span>
+      <a href="/disclaimer/">Disclaimer</a>
+      <span class="footer-sep">|</span>
+      <a href="/about/">About Us</a>
+      <span class="footer-sep">|</span>
+      <a href="/contact/">Contact</a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2026 Website Aku</p>
+    </div>
   </footer>
 </div>
