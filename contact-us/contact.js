@@ -1,29 +1,32 @@
-(function () {
-  // === EMAIL OBFUSCATION (anti scraping) ===
-  // mediaagni20@gmail.com
+(() => {
   const a = ["mediaagni", "20"];
   const b = ["gmail", "com"];
-  const at = String.fromCharCode(64);   // "@"
-  const dot = String.fromCharCode(46);  // "."
+  const at = "@";
+  const dot = ".";
 
-  function getEmail() {
-    return a.join("") + at + b[0] + dot + b[1];
-  }
+  const getEmail = () => a.join("") + at + b[0] + dot + b[1];
 
-  document.getElementById("sendBtn").addEventListener("click", function () {
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
+  const btn = document.getElementById("sendBtn");
+  const subjectEl = document.getElementById("subject");
+  const messageEl = document.getElementById("message");
+
+  if (!btn || !subjectEl || !messageEl) return;
+
+  btn.addEventListener("click", () => {
+    const subject = subjectEl.value.trim();
+    const message = messageEl.value.trim();
 
     if (!subject && !message) {
       alert("Silakan isi subject atau pesan terlebih dahulu.");
       return;
     }
 
-    const mailto =
-      "mailto:" + encodeURIComponent(getEmail()) +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(message);
+    const email = getEmail();
 
-    window.location.href = mailto;
+    const params = new URLSearchParams();
+    if (subject) params.set("subject", subject);
+    if (message) params.set("body", message);
+
+    window.location.href = `mailto:${email}?${params.toString()}`;
   });
 })();

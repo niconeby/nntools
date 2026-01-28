@@ -26,28 +26,33 @@
 
     <main class="content-container">
       <!-- ISI KONTEN -->
-      <div class="card">
-        <h1>Contact Us</h1>
-        <p class="subtitle">
-          Kritik, saran, atau pertanyaan? Kirim langsung via email.
-        </p>
-
-        <div class="field">
-          <label for="subject">Subject</label>
-          <input id="subject" type="text" placeholder="Judul pesan…" />
+      <section class="card card-accent">
+        <div class="card-header">
+          <h1 class="card-title">Contact Us</h1>
+          <p class="card-desc">
+            Kritik, saran, atau pertanyaan? Kirim langsung via email.
+          </p>
         </div>
 
-        <div class="field">
-          <label for="message">Pesan</label>
-          <textarea id="message" placeholder="Tulis pesan kamu di sini…"></textarea>
-        </div>
+        <div class="card-body">
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="Judul pesan…" />
+          </div>
 
-        <button class="btn" id="sendBtn">Kirim</button>
+          <div class="field">
+            <label for="message">Pesan</label>
+            <textarea id="message" placeholder="Tulis pesan kamu di sini…"></textarea>
+          </div>
 
-        <div class="note">
-          Pesan akan dibuka melalui aplikasi email di perangkat kamu.
+          <button class="btn" id="sendBtn">Kirim</button>
+
+          <!-- ini custom -->
+          <div class="note">
+            Pesan akan dibuka melalui aplikasi email di perangkat kamu.
+          </div>
         </div>
-      </div>
+      </section>
     </main>
     <div id="footer"></div>
   </div>
