@@ -8,6 +8,11 @@
   <meta name="description" content="Kumpulan tools dari Mediaagni" />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="YtkUrEaPqvYTTIF06KE6svHOBAL8NdK3-0vx9Wo5bEU" />
+  <meta property="og:title" content="Tools Mediaagni">
+  <meta property="og:description" content="Kumpulan tools dari Mediaagni">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.mediaagni.com/">
+  <meta property="og:image" content="https://tools.mediaagni.com/logo.png">
 
   <link rel="canonical" href="https://tools.mediaagni.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="/logo.png">
   <link rel="stylesheet" href="/base.css">
-
+  <!-- CUSTOM CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -46,48 +51,8 @@
     </main>
     <div id="footer"></div>
   </div>
-
-  <script>
-    function initMobileNav() {
-      const headerHost = document.getElementById("header");
-      const btn = document.getElementById("menuBtn");
-      const nav = document.getElementById("mobileNav");
-      if (!headerHost || !btn || !nav) return;
-
-      const setOpen = (open) => {
-        headerHost.classList.toggle("is-open", open);
-        btn.setAttribute("aria-expanded", String(open));
-        btn.innerHTML = open
-          ? '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>'
-          : '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round"/></svg>';
-      };
-
-      btn.addEventListener("click", () => {
-        setOpen(!headerHost.classList.contains("is-open"));
-      });
-
-      nav.addEventListener("click", (e) => {
-        if (e.target.closest("a")) setOpen(false);
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!headerHost.classList.contains("is-open")) return;
-        if (headerHost.contains(e.target)) return;
-        setOpen(false);
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") setOpen(false);
-      });
-    }
-
-    Promise.all([
-      fetch("/header.html").then(r => r.text()).then(t => (document.getElementById("header").innerHTML = t)),
-      fetch("/footer.html").then(r => r.text()).then(t => (document.getElementById("footer").innerHTML = t)),
-    ]).then(() => {
-      initMobileNav();
-    });
-  </script>
+  <script src="/layout.js" defer></script>
+  <!-- CUSTOM JS -->
 </body>
 
 </html>
