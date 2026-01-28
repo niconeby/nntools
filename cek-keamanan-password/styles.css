@@ -1,4 +1,4 @@
-:root{
+:root {
   --brand: #00857c;
   --brand-2: #0aa79b;
   --bg: #f6fbfa;
@@ -19,7 +19,7 @@
 /* =========================
   TOOL CONTAINER
   ========================= */
-.tool-container{
+.tool-container {
   margin: 0 auto;
   background: var(--card);
   border: 1px solid var(--border);
@@ -40,12 +40,12 @@
 }
 
 /* bikin card gak “gepeng” */
-.tool-container{
+.tool-container {
   min-height: 640px;
   padding-bottom: 42px;
 }
 
-.tool-container > *{
+.tool-container>* {
   max-width: 760px;
   margin-left: auto;
   margin-right: auto;
@@ -54,7 +54,7 @@
 /* =========================
   TITLE
   ========================= */
-.tool-container h2{
+.tool-container h2 {
   text-align: center;
   margin: 20px auto;
   font-size: 24px;
@@ -64,12 +64,12 @@
 /* =========================
   INPUT + EYE
   ========================= */
-.input-wrapper{
+.input-wrapper {
   position: relative;
   width: 100%;
 }
 
-#passwordInput{
+#passwordInput {
   width: 98%;
   padding: 12px 5px;
   font-size: 16px;
@@ -81,12 +81,12 @@
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 
-#passwordInput:focus{
+#passwordInput:focus {
   border-color: var(--focus-border);
   box-shadow: 0 0 0 6px var(--focus-shadow);
 }
 
-.toggle-visibility svg{
+.toggle-visibility svg {
   position: absolute;
   right: 12px;
   top: 50%;
@@ -96,21 +96,21 @@
   height: 22px;
 }
 
-.toggle-visibility svg path{
+.toggle-visibility svg path {
   fill: rgba(15, 23, 42, .35);
 }
 
 /* =========================
   BUTTONS (DESKTOP 2 KOLOM)
   ========================= */
-.button-group{
+.button-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   width: 100%;
 }
 
-.btn{
+.btn {
   background: var(--brand);
   color: #fff;
   border: none;
@@ -123,23 +123,23 @@
   box-shadow: 0 10px 22px rgba(0, 133, 124, .18);
 }
 
-.btn:hover{
+.btn:hover {
   background: var(--brand-2);
   transform: translateY(-1px);
 }
 
-.btn:active{
+.btn:active {
   transform: translateY(0);
 }
 
 /* =========================
   RESULT BOX
   ========================= */
-.breach-result{
+.breach-result {
   width: 100%;
 }
 
-#breachResult{
+#breachResult {
   padding: 12px 14px;
   border-radius: 12px;
   background: var(--card-soft);
@@ -152,7 +152,7 @@
 /* =========================
   STRENGTH METER
   ========================= */
-.strength-meter{
+.strength-meter {
   height: 12px;
   width: 100%;
   background: rgba(15, 23, 42, .08);
@@ -160,7 +160,7 @@
   overflow: hidden;
 }
 
-.strength-bar{
+.strength-bar {
   height: 100%;
   width: 0%;
   background: #ccc;
@@ -168,16 +168,16 @@
   border-radius: 999px;
 }
 
-.strength-text{
+.strength-text {
   font-weight: 800;
   text-align: center;
 }
 
-.suggestion-container{
+.suggestion-container {
   width: 100%;
 }
 
-.suggestion-box{
+.suggestion-box {
   margin-top: 12px;
   padding: 12px 14px;
   background: rgba(243, 156, 18, .12);
@@ -191,7 +191,7 @@
 /* =========================
   DISCLAIMER + SUPPORT
   ========================= */
-.disclaimer{
+.disclaimer {
   padding: 14px 16px;
   border-radius: 12px;
   background: var(--card-soft);
@@ -201,31 +201,33 @@
   font-size: 14px;
 }
 
-.disclaimer strong{
+.disclaimer strong {
   color: var(--text);
 }
 
-.disclaimer a.hibp-link{
+.disclaimer a.hibp-link {
   color: var(--brand);
   text-decoration: none;
   font-weight: 800;
   border-bottom: 2px dotted rgba(0, 133, 124, .65);
 }
-.disclaimer a.hibp-link:hover{
+
+.disclaimer a.hibp-link:hover {
   border-bottom-style: solid;
 }
 
-.disclaimer a.contact{
+.disclaimer a.contact {
   color: var(--brand);
   font-weight: 700;
   text-decoration: none;
 }
-.disclaimer a.contact:hover{
+
+.disclaimer a.contact:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.support-box{
+.support-box {
   padding: 12px 14px;
   border-radius: 12px;
   background: rgba(241, 196, 15, .14);
@@ -235,12 +237,13 @@
   line-height: 1.7;
 }
 
-.support-box a{
+.support-box a {
   color: var(--brand);
   font-weight: 900;
   text-decoration: none;
 }
-.support-box a:hover{
+
+.support-box a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -248,70 +251,78 @@
 /* =========================
   ICON / VERSION
   ========================= */
-.checking-icon{
+.checking-icon {
   width: 14px;
   height: 14px;
   vertical-align: middle;
   margin-right: 6px;
 }
-.checking-icon path{
+
+.checking-icon path {
   fill: var(--brand) !important;
 }
 
-.version-info{
+.version-info {
   float: right;
   font-size: 12px;
   color: rgba(15, 23, 42, .45);
   font-style: italic;
 }
 
-input[type="password"]::-ms-reveal{
+input[type="password"]::-ms-reveal {
   display: none;
 }
 
-@keyframes fadeIn{
-  from{ opacity: 0; transform: translateY(10px); }
-  to{ opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
   MOBILE (HP)
   ========================= */
-@media (max-width: 520px){
-  .tool-container{
+@media (max-width: 520px) {
+  .tool-container {
     padding: 18px 16px 16px;
     border-radius: 14px;
     min-height: auto;
     padding-bottom: 28px;
   }
 
-  .tool-container h2{
+  .tool-container h2 {
     font-size: 18px;
     margin-bottom: 14px;
   }
 
-  .button-group{
+  .button-group {
     grid-template-columns: 1fr;
   }
 
-  #passwordInput{
+  #passwordInput {
     font-size: 15px;
     width: 96%;
   }
 
   .disclaimer,
-  .support-box{
+  .support-box {
     font-size: 13.5px;
     padding: 12px 12px;
   }
 
-  .version-info{
+  .version-info {
     float: none;
     display: block;
     text-align: right;
   }
 
-  .tool-container > *{
+  .tool-container>* {
     max-width: 100%;
   }
 }
