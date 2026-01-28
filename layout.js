@@ -31,9 +31,28 @@ function initMobileNav() {
   });
 }
 
+function setActiveNav() {
+  const headerEl = document.getElementById("header");
+  if (!headerEl) return;
+
+  // samakan format: tanpa trailing slash, root = "/"
+  const path = location.pathname.replace(/\/$/, "") || "/";
+
+  headerEl.querySelectorAll('a[href^="/"]').forEach((a) => {
+    const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
+
+    if (href === path) {
+      a.classList.add("is-active");
+    } else {
+      a.classList.remove("is-active");
+    }
+  });
+}
+
 Promise.all([
   fetch("/header.html").then(r => r.text()).then(t => (document.getElementById("header").innerHTML = t)),
   fetch("/footer.html").then(r => r.text()).then(t => (document.getElementById("footer").innerHTML = t)),
 ]).then(() => {
   initMobileNav();
+  setActiveNav();
 });

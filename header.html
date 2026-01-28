@@ -65,6 +65,15 @@
     font-weight: 600;
   }
 
+  .nav a.is-active,
+  .nav-panel a.is-active {
+    background: rgba(0, 133, 124, .10);
+    border-color: rgba(0, 133, 124, .22);
+    color: var(--brand);
+    font-weight: 600;
+  }
+
+
   /* hamburger button (lebih bagus) */
   .menu-btn {
     display: none;
@@ -191,21 +200,21 @@
 
   <!-- Desktop nav -->
   <nav class="nav" aria-label="Navigasi">
-    <a class="is-primary" href="/">Home</a>
-    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/">Home</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/disclaimer/">Disclaimer</a>
     <a href="/about-us/">About Us</a>
-    <a href="/contact-us">Contact Us</a>
+    <a href="/contact-us/">Contact Us</a>
   </nav>
 </div>
 
 <!-- Mobile dropdown -->
 <nav class="nav-panel" id="mobileNav" aria-label="Navigasi mobile">
   <div class="nav-panel-inner">
-    <a class="is-primary" href="/">Home</a>
-    <a href="/privacy-policy">Privacy Policy</a>
-    <a href="/disclaimer">Disclaimer</a>
+    <a href="/">Home</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/disclaimer/">Disclaimer</a>
     <a href="/about-us/">About Us</a>
-    <a href="/contact-us">Contact Us</a>
+    <a href="/contact-us/">Contact Us</a>
   </div>
 </nav>
