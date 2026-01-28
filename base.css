@@ -148,6 +148,22 @@ a:hover{
   gap: 14px;
 }
 
+/* CARD TOP BORDER */
+.card-accent{
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(0, 133, 124, .25), var(--brand), rgba(0, 133, 124, .25));
+}
+
 /* ==================================================
    FIELD / INPUT (GLOBAL)
    ================================================== */
@@ -156,10 +172,15 @@ a:hover{
   width: 100%;
 }
 
+.field label {
+  font-size: 14px;
+}
+
 .field input{
+  margin-top: 10px;
   width: 100%;
   padding: 12px 14px;
-  font-size: 15px;
+  font-size: 14px;
   font-family: inherit;
   border: 2px solid var(--border-strong);
   border-radius: 14px;
@@ -187,6 +208,27 @@ a:hover{
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.field textarea{
+  margin-top: 10px;
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.field textarea:focus{
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 6px var(--focus-shadow);
 }
 
 /* ==================================================
