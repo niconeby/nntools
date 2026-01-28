@@ -1,7 +1,7 @@
 /* ==================================================
    ROOT VARIABLES (GLOBAL THEME)
    ================================================== */
-:root{
+:root {
   --brand: #00857c;
   --brand-2: #0aa79b;
 
@@ -41,15 +41,20 @@
 /* ==================================================
    RESET & STRUCTURE
    ================================================== */
-*{
+* {
   box-sizing: border-box;
 }
 
-html, body{
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
   height: 100%;
 }
 
-body{
+body {
   margin: 0;
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
@@ -57,14 +62,14 @@ body{
 }
 
 /* background texture */
-body::before{
+body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(0,133,124,.10), transparent 55%),
-    radial-gradient(900px 500px at 90% 20%, rgba(10,167,155,.12), transparent 60%),
+    radial-gradient(1200px 600px at 10% 10%, rgba(0, 133, 124, .10), transparent 55%),
+    radial-gradient(900px 500px at 90% 20%, rgba(10, 167, 155, .12), transparent 60%),
     var(--bg);
   background-repeat: no-repeat;
 }
@@ -72,14 +77,14 @@ body::before{
 /* ==================================================
    LAYOUT
    ================================================== */
-.page{
+.page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: var(--header-h);
 }
 
-main.content-container{
+main.content-container {
   flex: 1;
   max-width: var(--container);
   margin: 0 auto;
@@ -89,24 +94,42 @@ main.content-container{
 /* ==================================================
    TYPOGRAPHY (GLOBAL)
    ================================================== */
-strong, b{
+strong,
+b {
   font-weight: 600;
   color: var(--text);
 }
 
-p{
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+li {
+  line-height: 1.75;
+}
+
+p {
   margin: 0;
   line-height: 1.75;
 }
 
 /* link */
-a{
+a {
   color: var(--brand);
   text-decoration: none;
   font-weight: 600;
 }
 
-a:hover{
+a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -114,49 +137,49 @@ a:hover{
 /* ==================================================
    CARD (GLOBAL)
    ================================================== */
-.card{
+.card {
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 24px;
 }
 
-@media (max-width: 768px){
-  .card{
+@media (max-width: 768px) {
+  .card {
     padding: 18px;
   }
 }
 
-.card-header{
+.card-header {
   margin-bottom: 16px;
 }
 
-.card-title{
+.card-title {
   margin: 0;
   font-size: 20px;
   letter-spacing: -0.02em;
 }
 
-.card-desc{
+.card-desc {
   margin-top: 6px;
   font-size: 14px;
   color: var(--muted);
 }
 
-.card-body{
+.card-body {
   display: grid;
   gap: 14px;
 }
 
 /* CARD TOP BORDER */
-.card-accent{
+.card-accent {
   position: relative;
   overflow: hidden;
 }
 
-.card-accent::before{
-  content:"";
-  position:absolute;
+.card-accent::before {
+  content: "";
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -167,7 +190,7 @@ a:hover{
 /* ==================================================
    FIELD / INPUT (GLOBAL)
    ================================================== */
-.field{
+.field {
   position: relative;
   width: 100%;
 }
@@ -176,7 +199,7 @@ a:hover{
   font-size: 14px;
 }
 
-.field input{
+.field input {
   margin-top: 10px;
   width: 100%;
   padding: 12px 14px;
@@ -190,17 +213,17 @@ a:hover{
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 
-.field input:focus{
+.field input:focus {
   border-color: var(--focus-border);
   box-shadow: 0 0 0 6px var(--focus-shadow);
 }
 
 /* opt-in toggle space */
-.field.has-toggle input{
+.field.has-toggle input {
   padding-right: 52px;
 }
 
-.field-action{
+.field-action {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -210,7 +233,7 @@ a:hover{
   cursor: pointer;
 }
 
-.field textarea{
+.field textarea {
   margin-top: 10px;
   width: 100%;
   min-height: 140px;
@@ -226,15 +249,21 @@ a:hover{
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 
-.field textarea:focus{
+.field textarea:focus {
   border-color: var(--focus-border);
   box-shadow: 0 0 0 6px var(--focus-shadow);
 }
 
+.field ::placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+
 /* ==================================================
    BUTTON (GLOBAL)
    ================================================== */
-.btn{
+.btn {
   background: var(--brand);
   color: #fff;
   border: none;
@@ -244,22 +273,22 @@ a:hover{
   cursor: pointer;
   font-weight: 700;
   transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
-  box-shadow: 0 10px 22px rgba(0,133,124,.18);
+  box-shadow: 0 10px 22px rgba(0, 133, 124, .18);
 }
 
-.btn:hover{
+.btn:hover {
   background: var(--brand-2);
   transform: translateY(-1px);
 }
 
-.btn:active{
+.btn:active {
   transform: translateY(0);
 }
 
 /* ==================================================
    CALLOUT (GLOBAL)
    ================================================== */
-.callout{
+.callout {
   padding: 14px 16px;
   border-radius: 14px;
   border-left: 4px solid currentColor;
@@ -270,22 +299,22 @@ a:hover{
 }
 
 /* variants */
-.callout-warning{
+.callout-warning {
   color: var(--warn-text);
   background: var(--warn-bg);
 }
 
-.callout-info{
+.callout-info {
   color: var(--info-text);
   background: var(--info-bg);
 }
 
-.callout-success{
+.callout-success {
   color: var(--success-text);
   background: var(--success-bg);
 }
 
-.callout-support{
+.callout-support {
   color: var(--support-text);
   background: var(--support-bg);
 }
