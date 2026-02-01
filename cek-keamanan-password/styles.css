@@ -26,14 +26,14 @@
 .tool-password .meter {
   height: 12px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, .08);
+  background: rgba(15, 23, 42, 0.08);
   overflow: hidden;
 }
 
 .tool-password .meter-bar {
   height: 100%;
   width: 0%;
-  transition: width .25s ease;
+  transition: width 0.25s ease;
 }
 
 .tool-password .breach-result {
@@ -44,7 +44,7 @@
   padding: 12px 14px;
   border-radius: 12px;
   background: var(--card-soft);
-  border: 1px solid rgba(15, 23, 42, .06);
+  border: 1px solid rgba(15, 23, 42, 0.06);
   font-size: 14px;
   line-height: 1.6;
   display: none;
