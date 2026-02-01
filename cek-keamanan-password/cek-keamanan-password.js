@@ -1,16 +1,16 @@
-const passwordInput = document.getElementById('passwordInput');
-const strengthBar = document.getElementById('strengthBar');
-const strengthText = document.getElementById('strengthText');
-const suggestionBox = document.getElementById('suggestionBox');
-const iconVisible = document.getElementById('icon-visible');
-const iconHidden = document.getElementById('icon-hidden');
+const passwordInput = document.getElementById("passwordInput");
+const strengthBar = document.getElementById("strengthBar");
+const strengthText = document.getElementById("strengthText");
+const suggestionBox = document.getElementById("suggestionBox");
+const iconVisible = document.getElementById("icon-visible");
+const iconHidden = document.getElementById("icon-hidden");
 
 /**
  * Event listener untuk mendeteksi perubahan di input password.
- * Akan menghitung skor kekuatan password, memberikan saran, 
+ * Akan menghitung skor kekuatan password, memberikan saran,
  * dan memperbarui indikator kekuatan secara visual.
  */
-passwordInput.addEventListener('input', () => {
+passwordInput.addEventListener("input", () => {
   const pwd = passwordInput.value.trim();
 
   if (pwd === "") {
@@ -47,7 +47,9 @@ passwordInput.addEventListener('input', () => {
   if (/[\W_]/.test(pwd)) score++;
   else suggestions.push("Tambahkan simbol (!@#$% dll)");
 
-  let strength = "", width = "0%", color = "#ccc";
+  let strength = "",
+    width = "0%",
+    color = "#ccc";
 
   if (score <= 2) {
     strength = "Lemah 😟";
@@ -71,14 +73,17 @@ passwordInput.addEventListener('input', () => {
   strengthBar.style.background = color;
   strengthText.textContent = strength;
 
-  strengthBar.animate([
-    { transform: 'scaleX(1)', offset: 0 },
-    { transform: 'scaleX(1.03)', offset: 0.8 },
-    { transform: 'scaleX(1)', offset: 1 }
-  ], {
-    duration: 300,
-    fill: 'forwards'
-  });
+  strengthBar.animate(
+    [
+      { transform: "scaleX(1)", offset: 0 },
+      { transform: "scaleX(1.03)", offset: 0.8 },
+      { transform: "scaleX(1)", offset: 1 },
+    ],
+    {
+      duration: 300,
+      fill: "forwards",
+    },
+  );
 
   if (suggestions.length > 0) {
     suggestionBox.style.display = "block";
@@ -93,15 +98,15 @@ passwordInput.addEventListener('input', () => {
  * Juga mengganti ikon mata terbuka/tertutup secara dinamis.
  */
 function toggleVisibility() {
-  const input = document.getElementById('passwordInput');
-  const isHidden = input.getAttribute('type') === 'password';
-  input.setAttribute('type', isHidden ? 'text' : 'password');
+  const input = document.getElementById("passwordInput");
+  const isHidden = input.getAttribute("type") === "password";
+  input.setAttribute("type", isHidden ? "text" : "password");
 
-  const iconVisible = document.getElementById('icon-visible');
-  const iconHidden = document.getElementById('icon-hidden');
+  const iconVisible = document.getElementById("icon-visible");
+  const iconHidden = document.getElementById("icon-hidden");
 
-  iconVisible.style.display = isHidden ? 'none' : 'block';
-  iconHidden.style.display = isHidden ? 'block' : 'none';
+  iconVisible.style.display = isHidden ? "none" : "block";
+  iconHidden.style.display = isHidden ? "block" : "none";
 }
 
 /**
@@ -116,21 +121,27 @@ async function copyPassword() {
     const notice = document.getElementById("copyNotice");
     notice.style.opacity = 0;
     notice.style.display = "block";
-    notice.animate([
-      { opacity: 0, transform: "translateY(5px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ], {
-      duration: 300,
-      fill: "forwards"
-    });
-    setTimeout(() => {
-      notice.animate([
+    notice.animate(
+      [
+        { opacity: 0, transform: "translateY(5px)" },
         { opacity: 1, transform: "translateY(0)" },
-        { opacity: 0, transform: "translateY(-5px)" }
-      ], {
+      ],
+      {
         duration: 300,
-        fill: "forwards"
-      });
+        fill: "forwards",
+      },
+    );
+    setTimeout(() => {
+      notice.animate(
+        [
+          { opacity: 1, transform: "translateY(0)" },
+          { opacity: 0, transform: "translateY(-5px)" },
+        ],
+        {
+          duration: 300,
+          fill: "forwards",
+        },
+      );
       setTimeout(() => {
         notice.style.display = "none";
       }, 300);
@@ -151,7 +162,10 @@ async function sha1(str) {
   const buffer = new TextEncoder().encode(str);
   const hashBuffer = await crypto.subtle.digest("SHA-1", buffer);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+  return hashArray
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
 }
 
 /**
@@ -186,7 +200,8 @@ async function checkPwned() {
   resultBox.style.display = "block";
 
   if (!getRateLimitStatus()) {
-    resultBox.innerHTML = "⚠️ Maksimal 5 kali pengecekan per menit. Silahkan tunggu sebentar.";
+    resultBox.innerHTML =
+      "⚠️ Maksimal 5 kali pengecekan per menit. Silahkan tunggu sebentar.";
     resultBox.style.color = "#f39c12";
     return;
   }
@@ -199,7 +214,8 @@ async function checkPwned() {
   }
 
   if (pwd.length > 25) {
-    resultBox.innerHTML = "⚠️ Maksimal panjang password untuk dicek adalah 25 karakter.";
+    resultBox.innerHTML =
+      "⚠️ Maksimal panjang password untuk dicek adalah 25 karakter.";
     resultBox.style.color = "#e67e22";
     return;
   }
@@ -221,7 +237,7 @@ async function checkPwned() {
     const text = await res.text();
 
     const lines = text.split("\n");
-    const found = lines.find(line => line.startsWith(suffix));
+    const found = lines.find((line) => line.startsWith(suffix));
 
     if (found) {
       const count = found.split(":")[1].trim();
@@ -229,7 +245,8 @@ async function checkPwned() {
       resultBox.innerHTML = `❌ Password ini telah bocor <strong>${countFormatted}</strong> kali! Hindari penggunaan.`;
       resultBox.style.color = "#e74c3c";
     } else {
-      resultBox.innerHTML = "✅ Password ini belum ditemukan dalam database kebocoran publik.";
+      resultBox.innerHTML =
+        "✅ Password ini belum ditemukan dalam database kebocoran publik.";
       resultBox.style.color = "#2ecc71";
     }
   } catch (err) {

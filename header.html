@@ -6,7 +6,7 @@
     right: 0;
     z-index: 100;
     background: #ffffff;
-    border-bottom: 1px solid rgba(15, 23, 42, .08);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   }
 
   .site-header {
@@ -49,31 +49,32 @@
     padding: 7px 10px;
     border-radius: 10px;
     border: 1px solid transparent;
-    transition: background .15s ease, border-color .15s ease;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
     white-space: nowrap;
     font-weight: 300 !important;
   }
 
   .nav a:hover {
-    background: rgba(0, 133, 124, .08);
-    border-color: rgba(0, 133, 124, .18);
+    background: rgba(0, 133, 124, 0.08);
+    border-color: rgba(0, 133, 124, 0.18);
   }
 
   .nav a.is-primary {
     color: var(--brand);
-    background: rgba(0, 133, 124, .10);
-    border-color: rgba(0, 133, 124, .18);
+    background: rgba(0, 133, 124, 0.1);
+    border-color: rgba(0, 133, 124, 0.18);
     font-weight: 600;
   }
 
   .nav a.is-active,
   .nav-panel a.is-active {
-    background: rgba(0, 133, 124, .10);
-    border-color: rgba(0, 133, 124, .22);
+    background: rgba(0, 133, 124, 0.1);
+    border-color: rgba(0, 133, 124, 0.22);
     color: var(--brand);
     font-weight: 600 !important;
   }
-
 
   /* hamburger button (lebih bagus) */
   .menu-btn {
@@ -81,17 +82,20 @@
     width: 44px;
     height: 40px;
     border-radius: 12px;
-    border: 1px solid rgba(15, 23, 42, .10);
-    background: rgba(255, 255, 255, .9);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    transition:
+      transform 0.12s ease,
+      background 0.12s ease,
+      border-color 0.12s ease;
   }
 
   .menu-btn:hover {
-    background: rgba(0, 133, 124, .06);
-    border-color: rgba(0, 133, 124, .18);
+    background: rgba(0, 133, 124, 0.06);
+    border-color: rgba(0, 133, 124, 0.18);
     transform: translateY(-1px);
   }
 
@@ -117,12 +121,15 @@
     transform: translateY(-6px);
     overflow: hidden;
 
-    transition: max-height 280ms ease, opacity 220ms ease, transform 220ms ease;
+    transition:
+      max-height 280ms ease,
+      opacity 220ms ease,
+      transform 220ms ease;
     will-change: max-height, opacity, transform;
   }
 
   .nav-panel-inner {
-    border-top: 1px solid rgba(15, 23, 42, .08);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
     padding-top: 12px;
     display: grid;
     gap: 8px;
@@ -135,20 +142,22 @@
     font-size: 14px;
     color: var(--text);
     text-decoration: none;
-    border: 1px solid rgba(15, 23, 42, .08);
-    background: rgba(255, 255, 255, .92);
-    transition: background .12s ease, border-color .12s ease;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    transition:
+      background 0.12s ease,
+      border-color 0.12s ease;
   }
 
   .nav-panel a:hover {
-    border-color: rgba(0, 133, 124, .22);
-    background: rgba(0, 133, 124, .06);
+    border-color: rgba(0, 133, 124, 0.22);
+    background: rgba(0, 133, 124, 0.06);
   }
 
   .nav-panel a.is-primary {
     color: var(--brand);
-    border-color: rgba(0, 133, 124, .22);
-    background: rgba(0, 133, 124, .10);
+    border-color: rgba(0, 133, 124, 0.22);
+    background: rgba(0, 133, 124, 0.1);
     font-weight: 600;
   }
 
@@ -188,14 +197,25 @@
 
 <div class="site-header">
   <div class="brand">
-    <img class="brand-logo" src="/long-logo.png" alt="Website Aku">
+    <img class="brand-logo" src="/long-logo.png" alt="Website Aku" />
   </div>
 
-  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav"
-    aria-label="Buka menu">
+  <button
+    class="menu-btn"
+    id="menuBtn"
+    type="button"
+    aria-expanded="false"
+    aria-controls="mobileNav"
+    aria-label="Buka menu"
+  >
     <!-- Hamburger SVG -->
     <svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(15,23,42,.85)" stroke-width="2" stroke-linecap="round" />
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="rgba(15,23,42,.85)"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
     </svg>
   </button>
 
