@@ -147,6 +147,7 @@ a {
 a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-style: solid;
 }
 
 /* ==================================================
@@ -325,6 +326,11 @@ a:hover {
 }
 
 /* variants */
+.callout-brand {
+  color: var(--text);
+  background: var(--bg);
+  border-left: 4px solid var(--brand);
+}
 .callout-warning {
   color: var(--warn-text);
   background: var(--warn-bg);
