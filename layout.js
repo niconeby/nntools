@@ -49,41 +49,41 @@ function setActiveNav() {
   });
 }
 
-function initToolsDropdown() {
-  const dd = document.getElementById("toolsDd");
-  const btn = document.getElementById("toolsDdBtn");
-  const menu = document.getElementById("toolsDdMenu");
-  if (!dd || !btn || !menu) return;
+// function initToolsDropdown() {
+//   const dd = document.getElementById("toolsDd");
+//   const btn = document.getElementById("toolsDdBtn");
+//   const menu = document.getElementById("toolsDdMenu");
+//   if (!dd || !btn || !menu) return;
 
-  const setOpen = (open) => {
-    dd.classList.toggle("is-open", open);
-    btn.setAttribute("aria-expanded", String(open));
-  };
+//   const setOpen = (open) => {
+//     dd.classList.toggle("is-open", open);
+//     btn.setAttribute("aria-expanded", String(open));
+//   };
 
-  // toggle click
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setOpen(!dd.classList.contains("is-open"));
-  });
+//   // toggle click
+//   btn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     setOpen(!dd.classList.contains("is-open"));
+//   });
 
-  // close when clicking menu item
-  menu.addEventListener("click", (e) => {
-    if (e.target.closest('a[role="menuitem"]')) setOpen(false);
-  });
+//   // close when clicking menu item
+//   menu.addEventListener("click", (e) => {
+//     if (e.target.closest('a[role="menuitem"]')) setOpen(false);
+//   });
 
-  // close outside
-  document.addEventListener("click", (e) => {
-    if (!dd.classList.contains("is-open")) return;
-    if (dd.contains(e.target)) return;
-    setOpen(false);
-  });
+//   // close outside
+//   document.addEventListener("click", (e) => {
+//     if (!dd.classList.contains("is-open")) return;
+//     if (dd.contains(e.target)) return;
+//     setOpen(false);
+//   });
 
-  // esc close
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
-  });
-}
+//   // esc close
+//   document.addEventListener("keydown", (e) => {
+//     if (e.key === "Escape") setOpen(false);
+//   });
+// }
 
 function initToolsMobileDropdown() {
   const btn = document.getElementById("toolsMobileBtn");
@@ -126,7 +126,6 @@ Promise.all([
     .then((t) => (document.getElementById("footer").innerHTML = t)),
 ]).then(() => {
   initMobileNav();
-  initToolsDropdown();
   initToolsMobileDropdown();
   setActiveNav();
 });
