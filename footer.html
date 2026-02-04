@@ -5,20 +5,75 @@
   }
 
   .site-footer {
-    margin: 0 auto;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 18px 16px 16px;
-    text-align: center;
     color: var(--muted);
     font-size: 13px;
   }
 
-  /* links */
-  .footer-links {
-    margin-bottom: 10px;
-    font-size: 13px;
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-left,
+  .footer-right {
+    display: flex;
+    gap: 10px;
+  }
+
+  .footer-left {
+    justify-content: flex-start;
+  }
+
+  .footer-right {
+    justify-content: flex-end;
+  }
+
+  /* ===== SOCIAL ICON ===== */
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-1px);
+    background: rgba(0, 133, 124, 0.06);
+    border-color: rgba(0, 133, 124, 0.22);
+  }
+
+  .social-link img {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  /* ===== MIDDLE ===== */
+  .footer-middle {
+    text-align: center;
+    display: grid;
+    gap: 10px;
+  }
+
+  .footer-copy p {
+    margin: 0;
+    font-size: 12.5px;
   }
 
   .footer-links a {
@@ -37,47 +92,114 @@
     color: rgba(15, 23, 42, 0.35);
   }
 
-  /* copyright */
-  .footer-copy {
-    font-size: 12.5px;
-    color: var(--muted);
+  .footer-top {
+    display: none;
   }
 
-  .footer-copy p {
-    margin: 0;
-  }
-
-  /* mobile: biar gak kepanjangan */
+  /* ===== MOBILE ===== */
   @media (max-width: 768px) {
-    .footer-links {
-      line-height: 1.8;
+    .footer-grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 14px;
     }
 
-    .footer-sep {
+    .footer-left,
+    .footer-right {
       display: none;
+    }
+
+    .footer-top {
+      display: block;
+      justify-content: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .footer-links a {
       display: block;
       margin: 4px 0;
     }
+
+    .footer-middle {
+      width: 100%;
+    }
   }
 </style>
 
 <div class="footer-wrap">
   <footer class="site-footer">
-    <div class="footer-links">
-      <a href="/privacy-policy/">Privacy Policy</a>
-      <span class="footer-sep">|</span>
-      <a href="/disclaimer/">Disclaimer</a>
-      <span class="footer-sep">|</span>
-      <a href="/about/">About Us</a>
-      <span class="footer-sep">|</span>
-      <a href="/contact/">Contact</a>
-    </div>
-
-    <div class="footer-copy">
-      <p>Copyright © 2026</p>
+    <div class="footer-grid">
+      <!-- TOP MOBILE -->
+      <div class="footer-top">
+        <div class="footer-social">
+          <a class="social-link" href="#" aria-label="Instagram">
+            <img src="/icons/instagram.svg" alt="Instagram" />
+          </a>
+          <a class="social-link" href="#" aria-label="Linkedin">
+            <img src="/icons/linkedin.svg" alt="Linkedin" />
+          </a>
+          <a class="social-link" href="#" aria-label="X">
+            <img src="/icons/x.svg" alt="X" />
+          </a>
+          <a class="social-link" href="#" aria-label="Threads">
+            <img src="/icons/threads.svg" alt="Threads" />
+          </a>
+          <a class="social-link" href="#" aria-label="Youtube">
+            <img src="/icons/youtube.svg" alt="Youtube" />
+          </a>
+          <a class="social-link" href="#" aria-label="Email">
+            <img src="/icons/email.svg" alt="Email" />
+          </a>
+        </div>
+      </div>
+      <!-- LEFT -->
+      <div class="footer-left">
+        <div class="footer-social">
+          <a class="social-link" href="#" aria-label="Instagram">
+            <img src="/icons/instagram.svg" alt="Instagram" />
+          </a>
+          <a class="social-link" href="#" aria-label="Linkedin">
+            <img src="/icons/linkedin.svg" alt="Linkedin" />
+          </a>
+          <a class="social-link" href="#" aria-label="X">
+            <img src="/icons/x.svg" alt="X" />
+          </a>
+        </div>
+      </div>
+      <!-- MIDDLE -->
+      <div class="footer-middle">
+        <div class="footer-copy">
+          <p>Copyright © 2026</p>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <span class="footer-sep">|</span>
+          <a href="/disclaimer/">Disclaimer</a>
+          <span class="footer-sep">|</span>
+          <a href="/about-us/">About</a>
+          <span class="footer-sep">|</span>
+          <a href="/contact-us/">Contact</a>
+        </div>
+      </div>
+      <!-- RIGHT -->
+      <div class="footer-right">
+        <div class="footer-social">
+          <a class="social-link" href="#" aria-label="Threads">
+            <img src="/icons/threads.svg" alt="Threads" />
+          </a>
+          <a class="social-link" href="#" aria-label="Youtube">
+            <img src="/icons/youtube.svg" alt="Youtube" />
+          </a>
+          <a class="social-link" href="#" aria-label="Email">
+            <img src="/icons/email.svg" alt="Email" />
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 </div>
