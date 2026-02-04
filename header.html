@@ -1,12 +1,26 @@
 <style>
+  :root{
+    --header-bg: #ffffff;
+    --header-border: rgba(15, 23, 42, 0.08);
+    --nav-hover-bg: rgba(0, 133, 124, 0.08);
+    --nav-hover-border: rgba(0, 133, 124, 0.18);
+    --nav-active-bg: rgba(0, 133, 124, 0.10);
+    --nav-active-border: rgba(0, 133, 124, 0.22);
+    --panel-bg: rgba(255, 255, 255, 0.92);
+    --panel-border: rgba(15, 23, 42, 0.08);
+    --dd-bg: rgba(255,255,255,.98);
+    --dd-border: rgba(15,23,42,.10);
+    --dd-shadow: var(--shadow);
+  }
+
   #header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--header-border);
   }
 
   .site-header {
@@ -23,6 +37,11 @@
     display: flex;
     align-items: center;
     min-width: 0;
+  }
+
+  .brand a {
+    display: inline-flex;
+    align-items: center;
   }
 
   .brand-logo {
@@ -42,7 +61,8 @@
     justify-content: flex-end;
   }
 
-  .nav a {
+  .nav a,
+  .nav-dd-btn {
     color: var(--text);
     text-decoration: none;
     font-size: 13px;
@@ -53,12 +73,13 @@
       background 0.15s ease,
       border-color 0.15s ease;
     white-space: nowrap;
-    font-weight: 300 !important;
+    font-weight: 300;
   }
 
-  .nav a:hover {
-    background: rgba(0, 133, 124, 0.08);
-    border-color: rgba(0, 133, 124, 0.18);
+  .nav a:hover,
+  .nav-dd-btn:hover {
+    background: var(--nav-hover-bg);
+    border-color: var(--nav-hover-border);
   }
 
   .nav a.is-primary {
@@ -70,8 +91,8 @@
 
   .nav a.is-active,
   .nav-panel a.is-active {
-    background: rgba(0, 133, 124, 0.1);
-    border-color: rgba(0, 133, 124, 0.22);
+    background: var(--nav-active-bg);
+    border-color: var(--nav-active-border);
     color: var(--brand);
     font-weight: 600 !important;
   }
@@ -129,7 +150,7 @@
   }
 
   .nav-panel-inner {
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    border-top: 1px solid var(--panel-border);
     padding-top: 12px;
     display: grid;
     gap: 8px;
@@ -142,8 +163,8 @@
     font-size: 14px;
     color: var(--text);
     text-decoration: none;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
     transition:
       background 0.12s ease,
       border-color 0.12s ease;
@@ -163,11 +184,186 @@
 
   /* open state controlled by class */
   #header.is-open .nav-panel {
-    max-height: 420px;
+    max-height: 520px;
     /* cukup untuk 5 link, boleh kamu naikkan */
     opacity: 1;
     transform: translateY(0);
     padding: 0 14px 14px;
+  }
+
+  /* Desktop dropdown (Tools) */
+  .nav-dd {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-dd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .nav-dd-btn img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.75;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  .nav-dd.is-open .nav-dd-btn img {
+    transform: rotate(180deg);
+    opacity: 0.9;
+  }
+
+  /* menu wrapper */
+  .nav-dd-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 320px;
+    z-index: 120;
+
+    background: var(--dd-bg);
+    border: 1px solid var(--dd-border);
+    border-radius: 16px;
+    box-shadow: var(--dd-shadow);
+    padding: 10px;
+
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .nav-dd.is-open .nav-dd-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* card inside dropdown */
+  .nav-dd-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .dd-accent {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: rgba(0, 133, 124, 0.55);
+  }
+
+  /* dropdown items */
+  .nav-dd-menu a[role="menuitem"] {
+    display: block;
+    padding: 12px 12px 12px 16px;
+    margin: 4px; /* space for accent */
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid transparent;
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .nav-dd-menu a[role="menuitem"]:hover {
+    background: rgba(0, 133, 124, 0.06);
+    border-color: rgba(0, 133, 124, 0.18);
+  }
+
+  .dd-item-title {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .dd-item-desc {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.75;
+    line-height: 1.35;
+  }
+
+  /* Mobile dropdown (Tools)*/
+  .nav-panel-dd-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text);
+
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    cursor: pointer;
+
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .nav-panel-dd-btn:hover {
+    border-color: rgba(0, 133, 124, 0.22);
+    background: rgba(0, 133, 124, 0.06);
+  }
+
+  .nav-panel-dd-btn img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.75;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  /* submenu container */
+  .nav-panel-dd {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-4px);
+    transition: max-height 220ms ease, opacity 180ms ease, transform 180ms ease;
+    display: grid;
+    gap: 8px;
+  }
+
+  /* open state (pakai class di parent/element menu) */
+  .nav-panel-dd.is-open {
+    max-height: 240px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-panel-dd-btn.is-open img {
+    transform: rotate(180deg);
+    opacity: 0.9;
+  }
+
+  /* submenu links look like the rest */
+  .nav-panel-dd a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .nav-panel-dd a:hover {
+    border-color: rgba(0, 133, 124, 0.22);
+    background: rgba(0, 133, 124, 0.06);
   }
 
   /* responsive */
@@ -224,6 +420,29 @@
   <!-- Desktop nav -->
   <nav class="nav" aria-label="Navigasi">
     <a href="/">Home</a>
+    <div class="nav-dd" id="toolsDd">
+      <button
+        class="nav-dd-btn"
+        id="toolsDdBtn"
+        type="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Tools
+        <img src="/icons/dropdown.svg" alt="" aria-hidden="true" />
+      </button>
+
+      <div class="nav-dd-menu" id="toolsDdMenu" role="menu" aria-label="Daftar Tools">
+        <div class="nav-dd-card">
+          <div class="dd-accent"></div>
+
+          <a role="menuitem" href="/cek-keamanan-password/">
+            <div class="dd-item-title">Cek Keamanan Password</div>
+            <div class="dd-item-desc">Cek kekuatan password &amp; apakah pernah bocor.</div>
+          </a>
+        </div>
+      </div>
+    </div>
     <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/disclaimer/">Disclaimer</a>
     <a href="/about-us/">About Us</a>
@@ -235,6 +454,16 @@
 <nav class="nav-panel" id="mobileNav" aria-label="Navigasi mobile">
   <div class="nav-panel-inner">
     <a href="/">Home</a>
+
+    <button class="nav-panel-dd-btn" id="toolsMobileBtn" type="button" aria-expanded="false">
+      Tools
+      <img src="/icons/dropdown.svg" alt="" aria-hidden="true" />
+    </button>
+
+    <div class="nav-panel-dd" id="toolsMobileMenu">
+      <a href="/cek-keamanan-password/">Cek Keamanan Password</a>
+    </div>
+
     <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/disclaimer/">Disclaimer</a>
     <a href="/about-us/">About Us</a>
