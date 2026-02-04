@@ -16,6 +16,7 @@
 .tool-password .suggestion-box {
   color: black;
   border-left: 4px solid #eb9100;
+  display: none;
 }
 
 .tool-password .meter-text {
@@ -69,6 +70,20 @@
 
 .tool-password .notice.is-show {
   display: block;
+}
+
+.tool-password .hibp-link {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.tool-password .hibp-link:hover {
+  text-decoration: none;
+}
+
+.tool-password .hibp-link strong{
+  color: var(--brand);
 }
 
 @media (max-width: 768px) {
