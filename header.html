@@ -153,7 +153,6 @@
     border-top: 1px solid var(--panel-border);
     padding-top: 12px;
     display: grid;
-    gap: 8px;
   }
 
   .nav-panel a {
@@ -161,6 +160,7 @@
     padding: 10px 12px;
     border-radius: 12px;
     font-size: 14px;
+    margin: 5px 0;
     color: var(--text);
     text-decoration: none;
     border: 1px solid var(--panel-border);
@@ -299,17 +299,16 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-
+    font-weight: 600;
     width: 100%;
-    padding: 10px 12px;
+    padding: 12px;
+    margin: 5px 0;
     border-radius: 12px;
     font-size: 14px;
     color: var(--text);
-
     border: 1px solid var(--panel-border);
     background: var(--panel-bg);
     cursor: pointer;
-
     transition: background 0.12s ease, border-color 0.12s ease;
   }
 
@@ -354,11 +353,23 @@
     padding: 10px 12px;
     border-radius: 12px;
     font-size: 14px;
+    margin-left: 25px;
     color: var(--text);
     text-decoration: none;
     border: 1px solid var(--panel-border);
     background: var(--panel-bg);
     transition: background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .nav-panel-dd a::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 0px;
+    bottom: 0px;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--brand);
   }
 
   .nav-panel-dd a:hover {
