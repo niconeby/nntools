@@ -86,6 +86,10 @@
   color: var(--brand);
 }
 
+.tool-password .field-action svg {
+  opacity: 0.3;
+}
+
 @media (max-width: 768px) {
   .tool-password .btn-group {
     grid-template-columns: 1fr;
