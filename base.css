@@ -104,6 +104,8 @@ main.content-container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 28px 18px 40px;
+  align-items: center;
+  display: flex;
 }
 
 /* ==================================================
@@ -221,6 +223,7 @@ a:hover {
 }
 
 .field input {
+  margin-top: 10px;
   width: 100%;
   padding: 12px 14px;
   font-size: 14px;
