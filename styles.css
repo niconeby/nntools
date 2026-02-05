@@ -80,3 +80,10 @@
     font-size: 12.5px;
   }
 }
+
+/* NOT FOUND */
+.notfound-hint {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
