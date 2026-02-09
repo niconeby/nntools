@@ -316,6 +316,27 @@ a:hover {
 }
 
 /* ==================================================
+   BUTTON – SECONDARY
+   ================================================== */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand);
+  box-shadow: none;
+  border: 1px solid var(--brand);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 133, 124, 0.04);
+  color: var(--brand-2);
+  border-color: var(--brand-2);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ==================================================
    CALLOUT (GLOBAL)
    ================================================== */
 .callout {
