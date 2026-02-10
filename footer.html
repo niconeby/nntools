@@ -1,4 +1,62 @@
 <style>
+  :root {
+    --brand: #00857c;
+    --brand-2: #0aa79b;
+
+    --bg: #f6fbfa;
+    --text: #0f172a;
+    --muted: #475569;
+
+    --card: #ffffff;
+    --card-soft: rgba(15, 23, 42, 0.03);
+
+    --radius: 18px;
+    --shadow: 0 18px 50px rgba(2, 44, 41, 0.1);
+
+    --container: 980px;
+    --header-h: 96px;
+
+    --border: rgba(15, 23, 42, 0.1);
+    --border-strong: rgba(15, 23, 42, 0.12);
+
+    --focus-shadow: rgba(0, 133, 124, 0.14);
+    --focus-border: rgba(0, 133, 124, 0.55);
+
+    /* callout variants */
+    --warn-text: #e00219;
+    --warn-bg: rgb(255, 231, 231);
+
+    --info-text: #0369a1;
+    --info-bg: rgba(14, 165, 233, 0.12);
+
+    --success-text: #15803d;
+    --success-bg: rgba(34, 197, 94, 0.14);
+
+    --support-text: #eb9100;
+    --support-bg: rgba(241, 196, 15, 0.18);
+  }
+
+  /* blog layout */
+  .footer {
+    margin-bottom: 0px !important;
+  }
+
+  .custom-footer-container {
+    display: block !important;
+  }
+
+  .footer-wrap-blog {
+    padding: 0;
+  }
+
+  .footer-inner {
+    background-color: transparent !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 18px 10px !important;
+  }
+
+  /* end blog layout */
   .footer-wrap {
     width: 100%;
     padding: 0 18px 32px;
@@ -203,3 +261,73 @@
     </div>
   </footer>
 </div>
+
+<!-- BLOG -->
+<!-- <div class="footer-wrap-blog">
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-top">
+        <div class="footer-social">
+          <a class="social-link" href="https://www.instagram.com/mediaagni" aria-label="Instagram">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEit4hZnigYY3Qejpm9jNXSaevy_wi3_GzlWxrnrGyYLPG_-HAKCn5WC1QHLA5KMxg4VfYtHGOWySuPBm6UsT2ziu1tvS-vlwaHXb_uGT5NTyC2OGVIiZwM_l-nQ3EP7zDgEVq6q6yMvdP8YLjAKOaOnwAl1Ec1tBHqon-LK2LiSh4tJp20-ZiDXvsa_Za4/w200-h200/instagram-icon.png" alt="Instagram" />
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/company/mediaagni/" aria-label="Linkedin">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEAvwgT1dPoPqRb7keVNNoNbtbX7fImd5A9JsWLLb3LkOK1Ur4lMXOeYaDdiS_UbcahZ_CKfjkixJyaHobPTMa7S_5gGfrK2w9WFflrrD8P6A-z_KDAiTlpUi5HlWznK0asdv8kmNZ9UpfFRLI9Z27UNqKts_MZtrxs-DUAP5Lp4_7XhsT__Buhyphenhyphenx5v6Q/w200-h200/linkedin-icon.png" alt="Linkedin" />
+          </a>
+          <a class="social-link" href="https://x.com/mediaagnii" aria-label="X">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy6kSLcwY0StltB_30y3oeP0WJltWX4MowW8gaFrAwf6HVrpxxQv4yoV9MB90jT6oxLxyRRnDjwq_t1iuOe-ceY8hn8vSFq8c41a1XVizvReo1LpK2IVUtliE5YI7YSYsSQ6CdjEmqgMvfEPomhx30xCUkmttBYQ0lDBIeIEgbVx0jdLKw4wfBFHR47fc/w200-h200/x-icon.png" alt="X" />
+          </a>
+          <a class="social-link" href="https://www.threads.com/@mediaagni" aria-label="Threads">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWx34HkiyFRsFxkAuo-MmYRr717JYn3Se5fT1acAJbXvWbTWn0g8AjQT2y1POYI8tRiqMvQjXS46wptpGAhmRFIYR9ux3nAgXb9bZ50D5OcQfzNarom170-c6DBcM5HwTMs167ncYfJlbHN6OQOlsWLSY5s3Eia0eIvrtpzxKPYxZeP64nY9Ri-JzHV1U/w200-h200/thread-icon.png" alt="Threads" />
+          </a>
+          <a class="social-link" href="https://www.youtube.com/@ferizco" aria-label="Youtube">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4c1AU3NxDorFUKZRz_olaOFZKOKavgpyBnrjlh08vISirnBdXSarbm432XB7O2ow3gKZUB9h9yvj_gh8a3Cu7zWhDT6WrdRJqhxhGMKJJWNEsYutLuaN0q1fC3aCjf7Uz4JLQLX4CtnKd46BUp37ntYidXQ-mA8mEC7Rq86f7nK0MOqq9SLamcKVYhyU/w200-h200/youtube-icon.png" alt="Youtube" />
+          </a>
+          <a class="social-link" href="https://saweria.co/ferizco" aria-label="Donate">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKyP92BtxQsZ5iWkklFG43ThZczRsom6aMG_mL_ts8BnAbRS6nq0FWFDf0SHczdSlC6BDuMYMRgjZwLchW6Udglrr5cPL2y5tYBd9znDLTjJKF5CbbffstWWIwceitgPvWvtLDZr9Wmeblc4nfjcWscL4tut0JZ-2a0tntI9ybMK9F2wrkugQzFEOsQeg/w200-h200/donate-icon.png" alt="Donate" />
+          </a>
+        </div>
+      </div>
+      <div class="footer-left">
+        <div class="footer-social">
+          <a class="social-link" href="https://www.instagram.com/mediaagni" aria-label="Instagram">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEit4hZnigYY3Qejpm9jNXSaevy_wi3_GzlWxrnrGyYLPG_-HAKCn5WC1QHLA5KMxg4VfYtHGOWySuPBm6UsT2ziu1tvS-vlwaHXb_uGT5NTyC2OGVIiZwM_l-nQ3EP7zDgEVq6q6yMvdP8YLjAKOaOnwAl1Ec1tBHqon-LK2LiSh4tJp20-ZiDXvsa_Za4/w200-h200/instagram-icon.png" alt="Instagram" />
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/company/mediaagni/" aria-label="Linkedin">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEAvwgT1dPoPqRb7keVNNoNbtbX7fImd5A9JsWLLb3LkOK1Ur4lMXOeYaDdiS_UbcahZ_CKfjkixJyaHobPTMa7S_5gGfrK2w9WFflrrD8P6A-z_KDAiTlpUi5HlWznK0asdv8kmNZ9UpfFRLI9Z27UNqKts_MZtrxs-DUAP5Lp4_7XhsT__Buhyphenhyphenx5v6Q/w200-h200/linkedin-icon.png" alt="Linkedin" />
+          </a>
+          <a class="social-link" href="https://x.com/mediaagnii" aria-label="X">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy6kSLcwY0StltB_30y3oeP0WJltWX4MowW8gaFrAwf6HVrpxxQv4yoV9MB90jT6oxLxyRRnDjwq_t1iuOe-ceY8hn8vSFq8c41a1XVizvReo1LpK2IVUtliE5YI7YSYsSQ6CdjEmqgMvfEPomhx30xCUkmttBYQ0lDBIeIEgbVx0jdLKw4wfBFHR47fc/w200-h200/x-icon.png" alt="X" />
+          </a>
+        </div>
+      </div>
+      <div class="footer-middle">
+        <div class="footer-copy">
+          <p>© 2026 Mediaagni</p>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <span class="footer-sep">|</span>
+          <a href="/disclaimer/">Disclaimer</a>
+          <span class="footer-sep">|</span>
+          <a href="/about-us/">About</a>
+          <span class="footer-sep">|</span>
+          <a href="/contact-us/">Contact</a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-social">
+          <a class="social-link" href="https://www.threads.com/@mediaagni" aria-label="Threads">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWx34HkiyFRsFxkAuo-MmYRr717JYn3Se5fT1acAJbXvWbTWn0g8AjQT2y1POYI8tRiqMvQjXS46wptpGAhmRFIYR9ux3nAgXb9bZ50D5OcQfzNarom170-c6DBcM5HwTMs167ncYfJlbHN6OQOlsWLSY5s3Eia0eIvrtpzxKPYxZeP64nY9Ri-JzHV1U/w200-h200/thread-icon.png" alt="Threads" />
+          </a>
+          <a class="social-link" href="https://www.youtube.com/@ferizco" aria-label="Youtube">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4c1AU3NxDorFUKZRz_olaOFZKOKavgpyBnrjlh08vISirnBdXSarbm432XB7O2ow3gKZUB9h9yvj_gh8a3Cu7zWhDT6WrdRJqhxhGMKJJWNEsYutLuaN0q1fC3aCjf7Uz4JLQLX4CtnKd46BUp37ntYidXQ-mA8mEC7Rq86f7nK0MOqq9SLamcKVYhyU/w200-h200/youtube-icon.png" alt="Youtube" />
+          </a>
+          <a class="social-link" href="https://saweria.co/ferizco" aria-label="Donate">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKyP92BtxQsZ5iWkklFG43ThZczRsom6aMG_mL_ts8BnAbRS6nq0FWFDf0SHczdSlC6BDuMYMRgjZwLchW6Udglrr5cPL2y5tYBd9znDLTjJKF5CbbffstWWIwceitgPvWvtLDZr9Wmeblc4nfjcWscL4tut0JZ-2a0tntI9ybMK9F2wrkugQzFEOsQeg/w200-h200/donate-icon.png" alt="Donate" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div> -->
