@@ -75,16 +75,12 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(
-      1200px 600px at 10% 10%,
+    radial-gradient(1200px 600px at 10% 10%,
       rgba(0, 133, 124, 0.1),
-      transparent 55%
-    ),
-    radial-gradient(
-      900px 500px at 90% 20%,
+      transparent 55%),
+    radial-gradient(900px 500px at 90% 20%,
       rgba(10, 167, 155, 0.12),
-      transparent 60%
-    ),
+      transparent 60%),
     var(--bg);
   background-repeat: no-repeat;
 }
@@ -104,8 +100,30 @@ main.content-container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 28px 18px 40px;
-  align-items: center;
   display: flex;
+  gap: 20px;
+}
+
+.content-wrapper {
+  width: 70%;
+}
+
+.content-sidebar {
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  main.content-container {
+    flex-direction: column;
+  }
+
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .content-sidebar {
+    width: 100%;
+  }
 }
 
 /* ==================================================
@@ -202,12 +220,10 @@ a:hover {
   top: 0;
   width: 100%;
   height: 8px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 133, 124, 0.25),
-    var(--brand),
-    rgba(0, 133, 124, 0.25)
-  );
+  background: linear-gradient(90deg,
+      rgba(0, 133, 124, 0.25),
+      var(--brand),
+      rgba(0, 133, 124, 0.25));
 }
 
 /* ==================================================
@@ -355,6 +371,7 @@ a:hover {
   background: var(--bg);
   border-left: 4px solid var(--brand);
 }
+
 .callout-warning {
   color: var(--warn-text);
   background: var(--warn-bg);
