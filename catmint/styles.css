@@ -1,0 +1,129 @@
+/* =========================
+   TERMINAL CARD (PAGE)
+========================= */
+.terminal{
+  margin: 16px 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: #0b0f14;
+  padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: rgba(255,255,255,.92);
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+.term-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 12px;
+}
+
+.term-pill{
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.86);
+}
+
+.run-btn{
+  cursor: pointer;
+  padding: 7px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  font-family: inherit;
+}
+
+.run-btn:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.26);
+}
+
+.term-body{
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.term-line{
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 6px 0;
+}
+
+.term-line.cmd{ color:#22c55e; }
+.term-line.output{ color: rgba(255,255,255,.92); }
+
+/* =========================
+   MODAL / OVERLAY
+========================= */
+.run-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.62);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 99999;
+}
+
+.run-overlay.is-open{ display:flex; }
+
+.run-modal{
+  width: min(920px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: #0b0f14;
+  box-shadow: 0 20px 90px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+
+.run-modal-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.close-btn{
+  cursor:pointer;
+  padding: 7px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  font-family: inherit;
+}
+
+.run-output{
+  margin: 0;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.92);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  min-height: 180px;
+}
+
+/* caret (tidak kedip, cuma garis) */
+.run-output::after{
+  content: "▍";
+  margin-left: 2px;
+  opacity: .9;
+}
+
+@media (max-width: 768px){
+  .term-body{ font-size: 13px; }
+  .run-output{ font-size: 13px; min-height: 160px; }
+}

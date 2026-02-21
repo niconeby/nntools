@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catmint Mediaagni</title>
+    <meta name="description" content="Catmint adalah sebuah tool CLI untuk hash utility" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="google-site-verification"
+      content="YtkUrEaPqvYTTIF06KE6svHOBAL8NdK3-0vx9Wo5bEU"
+    />
+    <meta property="og:title" content="Catmint Mediaagni" />
+    <meta property="og:description" content="Catmint adalah sebuah tool CLI untuk hash utility" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tools.mediaagni.com/" />
+    <meta property="og:image" content="https://tools.mediaagni.com/logo.png" />
+
+    <link rel="canonical" href="https://tools.mediaagni.com/catmint/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/logo.png" />
+    <link rel="stylesheet" href="/base.css" />
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GFW4LWZJSG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-GFW4LWZJSG");
+    </script>
+  </head>
+
+  <body>
+    <div class="page">
+      <div id="header"></div>
+      <main class="content-container">
+        <!-- ISI KONTEN -->
+
+        <section class="card">
+
+          <div class="card-header">
+            <div class="card-title-row">
+              <h2 class="card-title">Catmint</h2>
+            </div>
+            <p class="card-desc">
+              Catmint adalah utilitas CLI untuk membuat dan memverifikasi hash file atau folder, membantu memastikan integritas file secara cepat dan konsisten.
+            </p>
+          </div>
+
+          <!-- TERMINAL 1 -->
+          <div class="terminal">
+            <div class="term-top">
+              <span class="term-pill">catmint</span>
+              <button class="run-btn" type="button" data-demo="hash">Run</button>
+            </div>
+            <div class="term-body">
+              <div class="term-line cmd">catmint hash -f porto.html -a md5</div>
+              <div class="term-line output">MD5 hash of file porto.html: 7e12ac023f78bfd35c5d7a70a93b86ab</div>
+            </div>
+          </div>
+
+          <!-- TERMINAL 2 -->
+          <div class="terminal">
+            <div class="term-top">
+              <span class="term-pill">catmint</span>
+              <button class="run-btn" type="button" data-demo="verify">Run</button>
+            </div>
+            <div class="term-body">
+              <div class="term-line cmd">catmint verify -f porto.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab</div>
+              <div class="term-line output">File porto.html: hash matches!</div>
+            </div>
+          </div>
+
+          <!-- OVERLAY -->
+          <div class="run-overlay" id="runOverlay" aria-hidden="true">
+            <div class="run-modal" role="dialog" aria-modal="true" aria-label="Catmint run output">
+              <div class="run-modal-top">
+                <span class="term-pill">catmint • run</span>
+                <button class="close-btn" type="button" id="closeOverlay">Close</button>
+              </div>
+
+              <pre class="run-output" id="runOutput"></pre>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div id="footer"></div>
+    </div>
+    <script src="/layout.js" defer></script>
+    <!-- CUSTOM JS -->
+     <script src="script.js"></script>
+  </body>
+</html>
