@@ -1,4 +1,5 @@
 
+  // ------------------- Overlay --------------------------------------------------
   // ===== Elements =====
   const overlay = document.getElementById("runOverlay");
   const out = document.getElementById("runOutput");
@@ -7,11 +8,11 @@
   // ===== Demo outputs (hardcode) =====
   const DEMOS = {
     hash: [
-      "$ catmint hash -f porto.html -a md5\n",
+      "$ catmint hash -f myfile.html -a md5\n",
       "MD5 hash of file porto.html: 7e12ac023f78bfd35c5d7a70a93b86ab\n"
     ],
     verify: [
-      "$ catmint verify -f porto.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab\n",
+      "$ catmint verify -f myfile.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab\n",
       "File porto.html: hash matches!\n"
     ]
   };
@@ -133,4 +134,61 @@
     if (e.key === "Escape" && overlay.classList.contains("is-open")) {
       closeOverlay();
     }
+  });
+
+
+// ------------------ typewritter -----------------------------------------
+const text = "Generate. Verify. Trust your files!";
+const speed = 55; // makin kecil makin cepat
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typing-text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+window.onload = typeWriter;
+
+// -------------------- Youtube Video -----------------------------------
+const videoContainer = document.getElementById("youtube-lazy-player");
+
+  videoContainer.addEventListener("click", function () {
+    const videoId = this.dataset.videoId;
+    const iframe = document.createElement("iframe");
+
+    iframe.setAttribute(
+      "src",
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
+    );
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("loading", "lazy");
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "0";
+
+    this.innerHTML = "";
+    this.appendChild(iframe);
+  });
+
+
+  // -------------------- Feedback -----------------------------------
+  document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = "melenio.ferizco@email.com";
+    const subject = "Feedback Catmint";
+    const feedback = document.getElementById("feedbackMessage").value.trim();
+    const selectedRating = document.querySelector('input[name="rating"]:checked');
+    const rating = selectedRating ? selectedRating.value : "Not specified";
+
+    const body = `Rating: ${rating}/5
+
+Feedback:
+${feedback || "-"}`;
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   });
