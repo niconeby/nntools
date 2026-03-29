@@ -9,11 +9,11 @@
   const DEMOS = {
     hash: [
       "$ catmint hash -f myfile.html -a md5\n",
-      "MD5 hash of file porto.html: 7e12ac023f78bfd35c5d7a70a93b86ab\n"
+      "MD5 hash of file myfile.html: 7e12ac023f78bfd35c5d7a70a93b86ab\n"
     ],
     verify: [
       "$ catmint verify -f myfile.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab\n",
-      "File porto.html: hash matches!\n"
+      "File myfile.html: hash matches!\n"
     ]
   };
 
@@ -175,20 +175,43 @@ const videoContainer = document.getElementById("youtube-lazy-player");
 
 
   // -------------------- Feedback -----------------------------------
-  document.getElementById("feedbackForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+const form = document.getElementById("feedbackForm");
+const feedbackInput = document.getElementById("feedbackMessage");
+const ratingInputs = document.querySelectorAll('input[name="rating"]');
+const submitBtn = document.getElementById("sendFeedbackBtn");
 
-    const email = "melenio.ferizco@email.com";
-    const subject = "Feedback Catmint";
-    const feedback = document.getElementById("feedbackMessage").value.trim();
-    const selectedRating = document.querySelector('input[name="rating"]:checked');
-    const rating = selectedRating ? selectedRating.value : "Not specified";
+function validateForm() {
+  const feedback = feedbackInput.value.trim();
+  const selectedRating = document.querySelector('input[name="rating"]:checked');
 
-    const body = `Rating: ${rating}/5
+  if (feedback !== "" && selectedRating) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+}
+
+// listen perubahan
+feedbackInput.addEventListener("input", validateForm);
+ratingInputs.forEach(input => {
+  input.addEventListener("change", validateForm);
+});
+
+// submit
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = "mediaagni20@gmail.com";
+  const subject = "Feedback Catmint";
+  const feedback = feedbackInput.value.trim();
+  const selectedRating = document.querySelector('input[name="rating"]:checked');
+  const rating = selectedRating.value;
+
+  const body = `Rating: ${rating}/5
 
 Feedback:
-${feedback || "-"}`;
+${feedback}`;
 
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  });
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+});

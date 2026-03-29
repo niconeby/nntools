@@ -49,7 +49,6 @@
         <!-- ISI KONTEN -->
 
         <section class="card">
-
           <div class="card-header">
             <div class="ascii">
               <pre>               __          .__        __    .__                  .__     
@@ -59,6 +58,7 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
  ╲___  >____  ╱__│ │__│_│  ╱__│___│  ╱__│   │___│  (____  ╱____  >___│  ╱
      ╲╱     ╲╱           ╲╱        ╲╱            ╲╱     ╲╱     ╲╱     ╲╱ 
 </pre>
+            </div>
             </div>
             
             <div class="card-tag">
@@ -159,38 +159,55 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
             </div>
 
             <h4 class="card-title">Generate Hash</h4>
-            <p class="card-desc">
+            <p class="card-desc" style="padding-bottom: 5px;">
               Generate a hash for your file or directory using your preferred algorithm.
               Supports MD5, SHA1, SHA256, SHA512, SHA3-256, and Blake3.
             </p>
-          </div>
+          
 
           <!-- TERMINAL 1 -->
           <div class="terminal">
             <div class="term-top">
-              <span class="term-pill">catmint</span>
+              <div class="term-left">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+                <span class="term-pill">catmint</span>
+              </div>
               <button class="run-btn" type="button" data-demo="hash">Run</button>
             </div>
+            <div class="term-divider"></div>
             <div class="term-body">
               <div class="term-line cmd">catmint hash -f myfile.html -a md5</div>
               <div class="term-line output">MD5 hash of file myfile.html: 7e12ac023f78bfd35c5d7a70a93b86ab</div>
             </div>
           </div>
 
-          <h4 class="card-title">Verify Hash</h4>
-            <p class="card-desc">
+          <h4 class="card-title" style="padding-top: 10px;">Verify Hash</h4>
+            <p class="card-desc" style="padding-bottom: 5px;">
               Verify file integrity by comparing its hash against a known value or reference file.
             </p>
 
           <!-- TERMINAL 2 -->
           <div class="terminal">
             <div class="term-top">
-              <span class="term-pill">catmint</span>
+              <div class="term-left">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+                <span class="term-pill">catmint</span>
+              </div>
+
               <button class="run-btn" type="button" data-demo="verify">Run</button>
             </div>
+            <div class="term-divider"></div>
             <div class="term-body">
-              <div class="term-line cmd">catmint verify -f myfile.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab</div>
-              <div class="term-line output">File myfile.html: hash matches!</div>
+              <div class="term-line cmd">
+                catmint verify -f myfile.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab
+              </div>
+              <div class="term-line output success">
+                File myfile.html: hash matches!
+              </div>
             </div>
           </div>
 
@@ -198,7 +215,12 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
           <div class="run-overlay" id="runOverlay" aria-hidden="true">
             <div class="run-modal" role="dialog" aria-modal="true" aria-label="Catmint run output">
               <div class="run-modal-top">
-                <span class="term-pill">catmint • run</span>
+                <div class="term-left">
+                  <span class="term-dot red"></span>
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot green"></span>
+                  <span class="term-pill">catmint • run</span>
+                </div>
                 <button class="close-btn" type="button" id="closeOverlay">Close</button>
               </div>
 
@@ -283,7 +305,7 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
 
                 <div class="checksum">
                   <span>SHA256</span>
-                  <code>d36799d135c6afe56abbafeb9f204fa2689d69f104f4f5448dbdaa211681e434</code>
+                  <code>3e4408d02157f8d740fb88361d10fe1adcba4280b756777ea90e1965059023b9</code>
                 </div>
 
                 <a href="https://search.sigstore.dev/?logIndex=1187998702" class="logindex-link">View LogIndex →</a>
@@ -309,7 +331,7 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
 
                 <div class="checksum">
                   <span>SHA256</span>
-                  <code>a530bc0b5877afca4973cdc0f444bbe092c36be3d348b5b1c0390480098cb006</code>
+                  <code>3b8335a32b3c0d0ffdaf2ad9de9b98b6ff783a5404f238761f75fcd456451775</code>
                 </div>
 
                 <a href="https://search.sigstore.dev/?logIndex=1187998567" class="logindex-link">View LogIndex →</a>
@@ -366,7 +388,7 @@ _╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  
                 ></textarea>
               </div>
 
-              <button type="submit" class="feedback-btn">Send Feedback</button>
+              <button type="submit" id="sendFeedbackBtn" class="feedback-btn" disabled>Send Feedback</button>
               <p class="feedback-note">
                 * This will open your email client to send the feedback.
               </p>
