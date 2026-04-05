@@ -440,7 +440,24 @@
   overflow: hidden;
   cursor: pointer;
 
-  background-image: url("https://img.youtube.com/vi/f1UFP4mHRFI/hqdefault.jpg");
+  background-image: url("https://img.youtube.com/vi/9J9j3vrDBEY/hqdefault.jpg");
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+.video-frame2 {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+
+  background-image: url("https://img.youtube.com/vi/KeVrIhDlLdI/hqdefault.jpg");
   background-size: cover;
   background-position: center;
 
