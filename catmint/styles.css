@@ -112,7 +112,7 @@
 
 @media (max-width: 1024px) {
   .ascii {
-    font-size: 8px;
+    font-size: 8px !important;
   }
   .terminal {
     padding: 16px;
