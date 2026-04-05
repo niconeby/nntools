@@ -25,11 +25,7 @@ jobs:
 
       - name: Copy static files to target repo
         run: |
-          cp -r ./* target-repo/
-
-      - name: Remove workflow folder from deployed output
-        run: |
-          rm -rf target-repo/.github
+          rsync -av --exclude 'target-repo' --exclude '.git' --exclude '.github' ./ target-repo/
 
       - name: Add CNAME for staging domain
         run: |
