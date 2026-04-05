@@ -110,7 +110,7 @@
   color: #e2e8f0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .terminal {
     padding: 16px;
     border-radius: 20px;
@@ -406,7 +406,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .features-section {
     padding: 0 20px 48px;
   }
@@ -791,7 +791,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: px) {
   .usecase-grid {
     grid-template-columns: 1fr;
   }
