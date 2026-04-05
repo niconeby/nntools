@@ -617,7 +617,7 @@
 
 @media (max-width: 768px) {
   .download-section {
-    padding: 0 20px 0px;
+    padding: 0px !important;
   }
 
   .download-grid {
