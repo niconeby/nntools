@@ -408,7 +408,7 @@
 
 @media (max-width: 768px) {
   .features-section {
-    padding: 0 20px 48px;
+    padding: 0 0px 48px;
   }
 
   .features-grid {
@@ -791,9 +791,12 @@
   }
 }
 
-@media (max-width: px) {
+@media (max-width: 768px) {
   .usecase-grid {
     grid-template-columns: 1fr;
+  }
+  .usecase-section {
+    padding: 0px;
   }
 }
 
