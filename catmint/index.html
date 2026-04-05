@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catmint Mediaagni</title>
+    <meta name="description" content="Catmint adalah sebuah tool CLI untuk hash utility" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="google-site-verification"
+      content="YtkUrEaPqvYTTIF06KE6svHOBAL8NdK3-0vx9Wo5bEU"
+    /> 
+    <meta property="og:title" content="Catmint Mediaagni" />
+    <meta property="og:description" content="Catmint adalah sebuah tool CLI untuk hash utility" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tools.mediaagni.com/" />
+    <meta property="og:image" content="https://tools.mediaagni.com/logo.png" />
+
+    <link rel="canonical" href="https://tools.mediaagni.com/catmint/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/logo.png" />
+    <link rel="stylesheet" href="/base.css" />
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GFW4LWZJSG"
+    ></script> 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-GFW4LWZJSG");
+    </script>
+  </head>
+
+  <body>
+    <div class="page">
+      <div id="header"></div>
+      <main class="content-container">
+        <!-- ISI KONTEN -->
+
+        <section class="card">
+          <div class="card-header">
+            <div class="ascii">
+              <pre>               __          .__        __    .__                  .__     
+  ____ _____ _╱  │_  _____ │__│ _____╱  │_  │  │__ _____    _____│  │__  
+_╱ ___╲╲__  ╲╲   __╲╱     ╲│  │╱    ╲   __╲ │  │  ╲╲__  ╲  ╱  ___╱  │  ╲ 
+╲  ╲___ ╱ __ ╲│  │ │  Y Y  ╲  │   │  ╲  │   │   Y  ╲╱ __ ╲_╲___ ╲│   Y  ╲
+ ╲___  >____  ╱__│ │__│_│  ╱__│___│  ╱__│   │___│  (____  ╱____  >___│  ╱
+     ╲╱     ╲╱           ╲╱        ╲╱            ╲╱     ╲╱     ╲╱     ╲╱ 
+</pre>
+            </div>
+            </div>
+            
+            <div class="card-tag">
+              Fast & Trustworthy File Integrity Checking
+            </div>
+            <div class="divider"></div>
+            <div class="typewriter">
+              <span id="typing-text"></span><span class="cursor">|</span>
+            </div>
+
+            <div class="card-desc-v2">
+              Catmint is a CLI tool for generating and verifying hashes of files and directories. <br>
+              Helping you ensure file integrity quickly and reliably.
+            </div>
+
+            <div class="section-nav">
+              <a href="#features">Main Features</a>
+              <a href="#demo">Example Commands</a>
+              <a href="#usecases">Use Cases</a>
+              <a href="#download">Download</a>
+              <a href="#feedback">Feedback</a>
+            </div>
+
+          <div class="video-frame youtube-lazy-player" data-video-id="9J9j3vrDBEY">
+            <button class="video-play-btn" aria-label="Play video">
+              <span class="play-icon"></span>
+            </button>
+          </div>
+            
+            <section id="features" class="features-section">
+              <div class="features-header">
+                <h2>Main Features</h2>
+                <p>
+                  Everything you need to generate, export, and verify file hashes efficiently.
+                </p>
+              </div>
+
+              <div class="features-grid">
+                <div class="feature-card">
+                  <h3>Hash Generation</h3>
+                  <p>
+                    Generate file and directory hashes using multiple algorithms for security,
+                    compatibility, and flexibility.
+                  </p>
+                  <div class="feature-tags">
+                    <span>SHA256</span>
+                    <span>SHA512</span>
+                    <span>SHA1</span>
+                    <span>MD5</span>
+                    <span>SHA3-256</span>
+                    <span>Blake3</span>
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <h3>Batch Hashing</h3>
+                  <p>
+                    Process multiple files recursively inside a folder, making directory-wide
+                    hashing faster and more efficient.
+                  </p>
+                </div>
+
+                <div class="feature-card">
+                  <h3>Verification Mode</h3>
+                  <p>
+                    Verify file integrity by comparing calculated hashes against expected values
+                    quickly and accurately.
+                  </p>
+                </div>
+
+                <div class="feature-card">
+                  <h3>Bulk Verification</h3>
+                  <p>
+                    Check all files in a directory against a previously generated reference file
+                    in TXT, CSV, or JSON format.
+                  </p>
+                </div>
+
+                <div class="feature-card">
+                  <h3>Flexible Output</h3>
+                  <p>
+                    Export hash results in TXT, CSV, or JSON formats for readability,
+                    automation, and tool integration.
+                  </p>
+                  <div class="feature-tags">
+                    <span>TXT</span>
+                    <span>CSV</span>
+                    <span>JSON</span>
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <h3>User-Friendly CLI</h3>
+                  <p>
+                    Minimal arguments, clear process messages, and straightforward output make
+                    Catmint easy to use in daily workflows.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div id="demo" class="features-header">
+                <h2> Example Commands</h2>
+            </div>
+
+            <h4 class="card-title">Generate Hash</h4>
+            <p class="card-desc" style="padding-bottom: 5px;">
+              Generate a hash for your file or directory using your preferred algorithm.
+              Supports MD5, SHA1, SHA256, SHA512, SHA3-256, and Blake3.
+            </p>
+          
+
+          <!-- TERMINAL 1 -->
+          <div class="terminal">
+            <div class="term-top">
+              <div class="term-left">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+                <span class="term-pill">catmint</span>
+              </div>
+              <button class="run-btn" type="button" data-demo="hash">Run</button>
+            </div>
+            <div class="term-divider"></div>
+            <div class="term-body">
+              <div class="term-line cmd">catmint hash -f myfile.html -a md5</div>
+              <div class="term-line output">MD5 hash of file myfile.html: 7e12ac023f78bfd35c5d7a70a93b86ab</div>
+            </div>
+          </div>
+
+          <h4 class="card-title" style="padding-top: 10px;">Verify Hash</h4>
+            <p class="card-desc" style="padding-bottom: 5px;">
+              Verify file integrity by comparing its hash against a known value or reference file.
+            </p>
+
+          <!-- TERMINAL 2 -->
+          <div class="terminal">
+            <div class="term-top">
+              <div class="term-left">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+                <span class="term-pill">catmint</span>
+              </div>
+
+              <button class="run-btn" type="button" data-demo="verify">Run</button>
+            </div>
+            <div class="term-divider"></div>
+            <div class="term-body">
+              <div class="term-line cmd">
+                catmint verify -f myfile.html -a md5 -hash 7e12ac023f78bfd35c5d7a70a93b86ab
+              </div>
+              <div class="term-line output success">
+                File myfile.html: hash matches!
+              </div>
+            </div>
+          </div>
+
+          <!-- OVERLAY -->
+          <div class="run-overlay" id="runOverlay" aria-hidden="true">
+            <div class="run-modal" role="dialog" aria-modal="true" aria-label="Catmint run output">
+              <div class="run-modal-top">
+                <div class="term-left">
+                  <span class="term-dot red"></span>
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot green"></span>
+                  <span class="term-pill">catmint • run</span>
+                </div>
+                <button class="close-btn" type="button" id="closeOverlay">Close</button>
+              </div>
+
+              <pre class="run-output" id="runOutput"></pre>
+            </div>
+          </div>
+
+          <p class="video-subtext">
+            Check this video for more usage examples.
+          </p>
+
+          <div class="video-frame2 youtube-lazy-player" data-video-id="KeVrIhDlLdI">
+            <button class="video-play-btn" aria-label="Play video">
+              <span class="play-icon"></span>
+            </button>
+          </div>
+
+          <section id="usecases" class="usecase-section">
+            <div class="usecase-header">
+              <h2>Use Cases</h2>
+              <p>Where Catmint fits into your workflow.</p>
+            </div>
+
+            <div class="usecase-grid">
+              <div class="usecase-card">
+                <h3>Verify Downloaded Files</h3>
+                <p>Ensure files you download haven’t been tampered with by verifying their hash against a trusted source.</p>
+              </div>
+
+              <div class="usecase-card">
+                <h3>Backup Integrity Check</h3>
+                <p>Validate your backup files to ensure they remain unchanged and reliable over time.</p>
+              </div>
+
+              <div class="usecase-card">
+                <h3>CI/CD Validation</h3>
+                <p>Automatically verify file integrity during build or deployment processes.</p>
+              </div>
+
+              <div class="usecase-card">
+                <h3>Directory Hashing</h3>
+                <p>Generate hashes for entire directories to detect changes or track file consistency.</p>
+              </div>
+
+              <div class="usecase-card">
+                <h3>Data Transfer Check</h3>
+                <p>Confirm that files transferred between systems remain intact and unaltered.</p>
+              </div>
+
+              <div class="usecase-card">
+                <h3>Security & Audit</h3>
+                <p>Keep hash records to detect unauthorized modifications in sensitive files.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="download" class="download-section">
+            <div class="download-header">
+              <h2>Download Catmint</h2>
+              <p>Choose your platform and start checking file integrity right away.</p>
+            </div>
+
+            <div class="download-grid">
+              <!-- Windows -->
+              <div class="download-card">
+                <div class="download-os">Windows</div>
+                <h3>Catmint for Windows</h3>
+                <p>Download and run Catmint easily from your terminal.</p>
+
+                <a href="https://github.com/ferizco/catmint-project/releases/download/v1.1.1/catmint-windows-amd64.zip" class="download-btn">Download .exe</a>
+                
+                <div class="download-meta">
+                  <span class="meta-label">Supports</span>
+                  <span class="meta-value">Windows 10 & 11</span>
+                </div>
+
+                <div class="download-meta">
+                  <span class="meta-label">Version</span>
+                  <span class="meta-value highlight">v1.1.1</span>
+                  <span class="meta-sub">latest</span>
+                </div>
+
+                <div class="checksum">
+                  <span>SHA256</span>
+                  <code>3e4408d02157f8d740fb88361d10fe1adcba4280b756777ea90e1965059023b9</code>
+                </div>
+
+                <a href="https://search.sigstore.dev/?logIndex=1187998702" class="logindex-link">View LogIndex →</a>
+              </div>
+
+              <!-- Linux -->
+              <div class="download-card">
+                <div class="download-os">Linux</div>
+                <h3>Catmint for Linux</h3>
+                <p>Get the binary and start verifying file integrity instantly.</p>
+
+                <a href="https://github.com/ferizco/catmint-project/releases/download/v1.1.1/catmint-linux-amd64.tar.gz" class="download-btn">Download Binary</a>
+                <div class="download-meta">
+                  <span class="meta-label">Supports</span>
+                  <span class="meta-value">x86_64 / amd64</span>
+                </div>
+
+                <div class="download-meta">
+                  <span class="meta-label">Version</span>
+                  <span class="meta-value highlight">v1.1.1</span>
+                  <span class="meta-sub">latest</span>
+                </div>
+
+                <div class="checksum">
+                  <span>SHA256</span>
+                  <code>3b8335a32b3c0d0ffdaf2ad9de9b98b6ff783a5404f238761f75fcd456451775</code>
+                </div>
+
+                <a href="https://search.sigstore.dev/?logIndex=1187998567" class="logindex-link">View LogIndex →</a>
+              </div>
+            </div>
+
+            <div class="download-more">
+              <div class="download-more-content">
+                <h3>Looking for other versions?</h3>
+                <p>
+                  Explore all available releases, including previous versions and detailed changelogs on GitHub.
+                </p>
+              </div>
+
+              <a href="https://github.com/ferizco/catmint-project/releases" class="github-btn">
+                View on GitHub Releases →
+              </a>
+            </div>
+          </section>
+
+          <section id="feedback" class="feedback-section">
+            <div class="feedback-header">
+              <h2>Share Your Feedback</h2>
+              <p>Have a suggestion, feature request, or something to improve? I'd love to hear it.</p>
+            </div>
+
+            <form class="feedback-form" id="feedbackForm">
+              <div class="rating-group">
+                <span class="rating-label">Rating</span>
+                <div class="star-rating" role="radiogroup" aria-label="Rating">
+                  <input type="radio" id="star5" name="rating" value="5">
+                  <label for="star5" title="5 stars">★</label>
+
+                  <input type="radio" id="star4" name="rating" value="4">
+                  <label for="star4" title="4 stars">★</label>
+
+                  <input type="radio" id="star3" name="rating" value="3">
+                  <label for="star3" title="3 stars">★</label>
+
+                  <input type="radio" id="star2" name="rating" value="2">
+                  <label for="star2" title="2 stars">★</label>
+
+                  <input type="radio" id="star1" name="rating" value="1">
+                  <label for="star1" title="1 star">★</label>
+                </div>
+              </div>
+
+              <div class="feedback-field">
+                <label for="feedbackMessage">Your feedback</label>
+                <textarea
+                  id="feedbackMessage"
+                  rows="6"
+                  placeholder="Write your feedback, suggestion, or feature request here..."
+                ></textarea>
+              </div>
+
+              <button type="submit" id="sendFeedbackBtn" class="feedback-btn" disabled>Send Feedback</button>
+              <p class="feedback-note">
+                * This will open your email client to send the feedback.
+              </p>
+            </form>
+          </section>
+        
+        </section>
+      </main>
+      <div id="footer"></div>
+    </div>
+    <script src="/layout.js" defer></script>
+    <!-- CUSTOM JS -->
+     <script src="script.js"></script>
+  </body>
+</html>
