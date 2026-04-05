@@ -400,11 +400,11 @@
   font-weight: 600;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
+} */
 
 @media (max-width: 1024px) {
   .features-section {
@@ -785,11 +785,11 @@
   line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .usecase-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+} */
 
 @media (max-width: 1024px) {
   .usecase-grid {
