@@ -1,0 +1,45 @@
+name: Deploy staging static site
+
+on:
+  push:
+    branches:
+      - stagging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v5
+
+      - name: Clone target staging Pages repo
+        env:
+          TOKEN: ${{ secrets.STAGING_PAGES_TOKEN }}
+        run: |
+          git clone https://x-access-token:${TOKEN}@github.com/niconeby/dev-nntools.git target-repo
+
+      - name: Clean target repo except .git
+        run: |
+          find target-repo -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+      - name: Copy static files to target repo
+        run: |
+          cp -r ./* target-repo/
+
+      - name: Remove workflow folder from deployed output
+        run: |
+          rm -rf target-repo/.github
+
+      - name: Add CNAME for staging domain
+        run: |
+          echo "dev.tools.mediaagni.com" > target-repo/CNAME
+
+      - name: Commit and push to target repo main
+        run: |
+          cd target-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Deploy staging from source repo" || echo "No changes to commit"
+          git push origin main
