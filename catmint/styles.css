@@ -944,7 +944,7 @@
 
 @media (max-width: 1024px) {
   .feedback-section {
-    padding: 0 20px 56px;
+    padding: 0 0px 56px;
   }
 
   .feedback-header h2 {
